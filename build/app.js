@@ -14,8 +14,8 @@ function randomWord() {
 }
 ;// CONCATENATED MODULE: ./src/jsmodules/dictionary.js
 function dictionaryCheck() {
-  console.log("dictionary"); // alert("dictionary");  
-
+  console.log("dictionary");
+  alert("dictionary");
   fetch("/.netlify/functions/dictionary-check").then(function (res) {
     return res;
   }).then(function (data) {

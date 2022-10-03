@@ -1,6 +1,6 @@
 export function dictionaryCheck() {
     console.log("dictionary");
-   // alert("dictionary");  
+    alert("dictionary");  
     fetch(`/.netlify/functions/dictionary-check`)
         .then(res =>
             res
