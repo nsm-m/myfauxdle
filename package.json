@@ -2,15 +2,16 @@
   "name": "myfauxdle",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.js", 
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack --mode development --watch",
+    "dev2": "webpack --watch --mode development ",
     "build": "webpack build  --mode production",
-    "start": "webpack serve --open --mode development"
-  },
+    "start": "webpack serve --open --mode development",
+    "dev":" webpack serve  --mode development & --watch --mode development"
+  }, 
   "keywords": [],
-  "author": "",
+  "author": "", 
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.19.3",
