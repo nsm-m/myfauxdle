@@ -1,6 +1,6 @@
-export function isWordGuessed() {
-
-    console.log("word found?");
+export function dictionaryCheck() {
+    console.log("dictionary");
+    alert("dictionary");
     fetch(`/.netlify/functions/word-found`)
         .then(res =>
             res
@@ -8,4 +8,3 @@ export function isWordGuessed() {
             console.log(data)
         )
 }
-
