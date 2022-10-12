@@ -5,16 +5,16 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev2": "webpack --watch --mode development ",
+    "dev": "webpack --watch --mode development ",
     "build": "webpack build  --mode production",
     "start": "webpack serve --open --mode development",
-    "dev": " webpack  --watch --mode development "
+    "dev2": " webpack  --watch --mode development "
   },
-  "keywords": [],
+  "keywords": [], 
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@babel/core": "^7.19.3",
+    "@babel/core": "^7.19.3", 
     "@babel/preset-env": "^7.19.3",
     "babel-loader": "^8.2.5",
     "css-loader": "^6.7.1",
@@ -30,6 +30,7 @@
     "webpack-dev-server": "^4.11.1"
   },
   "dependencies": {
-    "axios": "^0.27.2"
+    "axios": "^0.27.2",
+    "random-words": "^1.2.0"
   }
 }

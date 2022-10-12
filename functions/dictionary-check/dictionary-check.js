@@ -15,7 +15,7 @@ const handler = async (event) => {
       'X-RapidAPI-Host': 'dictionary-by-api-ninjas.p.rapidapi.com'
     }
   };
-
+ 
 
   try {
 

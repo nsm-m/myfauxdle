@@ -1,7 +1,10 @@
+
 var generatedWord = "";
-let wordObject;
+
 export var generatedWordExport;
 export var formattedWord;
+
+let testWord;
 
 export class WordToGuess {
     constructor(word) {
@@ -13,31 +16,46 @@ export class WordToGuess {
     }
 }
 
-
-export async function generateWord() {
-
-    await fetch(`/.netlify/functions/random-word`)
-        .then(res =>
-
-            res.json()
-
-        ).then(data => {
-
-            generatedWord = data;
-            wordObject = new WordToGuess(generatedWord);
-            generatedWordExport = JSON.stringify(wordObject);
-            let parsedWord = JSON.parse(generatedWordExport);
-            formattedWord = parsedWord.word;
-
-            //  console.log("testing" + formattedWord);
-            //  console.log(wordObject);
-            //  console.log('Success:', generatedWord);
-
-        })
-
-    return formattedWord;
-
-}
+let wordToRegister;
 
 
-//generateWord();
+// export function generateWord() {
+
+//     return new Promise((resolve, reject) => {
+//         testWord = randomWords();
+
+//         let letterCount = testWord.length;
+
+
+//         if (letterCount == 5) {
+//             generatedWord = testWord;
+//             console.log("word has enought letter : Ready => " + generatedWord);
+
+//             wordToGuessObject = new WordToGuess(generatedWord);
+//             console.log("wordObject: " + wordToGuessObject.getWordToGuess());
+
+
+//             generatedWordExport = JSON.stringify(wordToGuessObject);
+//             console.log("generatedWordExport: " + generatedWordExport);
+
+//             let parsedWord = JSON.parse(generatedWordExport);
+//             console.log("parsedWord: " + parsedWord);
+
+//             formattedWord = parsedWord.word;
+//             console.log(" formattedWord: " + formattedWord);
+//             resolve(formattedWord);
+
+//         } else {
+//             console.log(testWord + " doent have the right letter count trying again...");
+//             generateWord();
+
+//         }
+
+
+
+ 
+//     });
+
+// } 
+
+ 

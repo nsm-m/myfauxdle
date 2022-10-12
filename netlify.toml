@@ -3,4 +3,4 @@
     publish="build/"
 
 [dev]
-    publish="build/"
+    publish="."  
