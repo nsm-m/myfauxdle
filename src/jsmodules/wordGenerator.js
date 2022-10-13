@@ -10,18 +10,18 @@ export class WordToGuess {
     constructor(word) {
         this.word = word;
     }
-
-    getWordToGuess() {
+  
+    getWordToGuess() { 
         return this.word;
     }
-}
+}  
 
 let wordToRegister;
 
 
 // export function generateWord() {
 
-//     return new Promise((resolve, reject) => {
+//     return new Promise((resolve, reject) => { 
 //         testWord = randomWords();
 
 //         let letterCount = testWord.length;

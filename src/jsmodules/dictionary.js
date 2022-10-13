@@ -72,59 +72,6 @@ $(document).ready(function () {
 
 
 
-
-
-
-    // generateWord().then(
-
-
-    //     // $(validateWord).click( function (event) {
-    //     //     event.preventDefault();
-    //     //     alert("validate word");
-    //     //     submitWord();
-
-    //     // });
-    //      function (value) {
-    //         console.log("formatted " + formattedWord);
-    //         wordCreated = value;
-    //         //  console.log("wordCreated: " +value);
-    //         newWord = new WordToGuess(formattedWord);
-    //         //  console.log("another test: " + value);
-
-    //         console.log("wordCreated new word var: " + newWord.getWordToGuess())
-    //         // test(wordCreated);
-
-
-    //     $(validateWord).click( function (event) {
-    //         event.preventDefault();
-    //         alert("validate word");
-    //         submitWord();
-
-    //     });
-
-    //         return wordCreated, newWord;
-
-    //     },
-    //     function (error) {
-
-    //         console.log(error)
-    //     }
-    // );
-
-
-
-    // function test(val) {
-    //     newWord = val;
-    //     console.log("val etst: " + newWord);
-    //     return newWord;
-    // }
-
-
-
-    console.log("val 1" + newWord);
-
-    console.log("hnet" + newWord);
-
     let rgBGreen = "rgb(12, 206, 107)";
     let rgbYellow = "rgb(220, 237, 49)";
     let rgbGrey = "rgb(142, 141, 145)";
@@ -165,8 +112,6 @@ $(document).ready(function () {
     });
 
 
-
-
     //Function addelement(l) : 
     //- displays the letter picked
     function addelement(l) {
@@ -177,6 +122,7 @@ $(document).ready(function () {
         completeWord.innerHTML += l;
 
     }
+
 
     // Function pickLetters():
     // - select letters
@@ -205,6 +151,8 @@ $(document).ready(function () {
 
     }
 
+    //Gives the user the ability to 
+    // Remove/change a letter 
 
     function removeLetter() {
         let lettersCount2 = wordArray.length;
@@ -215,6 +163,9 @@ $(document).ready(function () {
         console.log(wordArray);
     }
 
+
+    //  Check if the letter is present
+    //  in the word to find
 
     function existingLetter(exist) {
         if (exist === true) {
@@ -232,15 +183,11 @@ $(document).ready(function () {
 
     async function submitWord() {
 
-
-
-
         alert("submit test");
 
         if ((count < MAX_GUESSES) && (wordArray.length === 5)) {
 
             wordGuess = wordArray.join("");
-
             wordsubmitted = wordGuess;
 
 
@@ -323,6 +270,8 @@ $(document).ready(function () {
 
         } else if ((wordArray.length != 5)) {
 
+            // Requires a word made of 5 letter 
+            // if not dont allow user to submit the word
             alert(`You're missing letters ${5 - wordArray.length} letters`);
 
         }
@@ -341,9 +290,14 @@ $(document).ready(function () {
         // countDisplay.innerHTML += wordTested.getWordToGuessCount();
         countDisplay.innerHTML += wordTested.getWordToGuessCount();
     }
+
+
     let isValidLetter;
     let letterExist;
-    //check letter by letter
+
+
+    //  Compares the word to find vs the user input
+    //  check letter by letter
     function lettersCheck(wordGuess) {
 
         newWord = wordGuess;
@@ -358,10 +312,10 @@ $(document).ready(function () {
         let validLettersCount = 0;
         let wordToGuess2 = formattedWordToGuess;
         console.log("wordToGuess2 to string lettersCheck : " + wordToGuess2)
-        let wtg = wordToGuess2.split("");
+        let wtg = wordToGuess2.split('');
         console.log("wtg to string lettersCheck : " + wtg);
         let userGuess = wordTested.getWordToTest();
-        let userGuessArray = userGuess.split("");
+        let userGuessArray = userGuess.split('');
 
         console.log("userGuess : " + userGuess + "/ wordToGuess2  => " + wordToGuessObject.word);
 
@@ -388,10 +342,9 @@ $(document).ready(function () {
                 console.log("letter word to guess: " + letterWordToGuess + " /letter word to test: " + letterWordToTest + " so letter is valid");
                 isValidLetter = true;
 
+                wtg.splice(i, 1, null);
+                console.log(">>>>>>>>>>>>>>> " + wtg);
 
-                console.log(wtg);
-
-                //   wtg.splice(i, 1, null);
                 userGuessArray.splice(i, 1, null);
 
                 if (isValidLetter === true) {
@@ -404,9 +357,11 @@ $(document).ready(function () {
                 console.log("word to test after validated : " + userGuessArray);
 
 
+                console.log("WTG: " + wtg);
+
             }
 
-
+            // return wtg;
 
         }
 
@@ -439,8 +394,8 @@ $(document).ready(function () {
                     letterExist = true;
 
 
-                    //  wtg.splice(i, 1, null);
-                    // userGuessArray.splice(i, 1, null);
+                    wtg.splice(i, 1, null);
+                    userGuessArray.splice(i, 1, null);
                     wtg.splice(wtg.indexOf(letterWordToTest2), 1, null);
 
                     console.log(letterWordToTest2 + " is included ");
