@@ -43,17 +43,17 @@ $(document).ready(function () {
                 console.log("word has enought letter : Ready => " + generatedWord);
 
                 wordToGuessObject = new WordToGuess(generatedWord);
-                console.log("wordObject: " + wordToGuessObject.getWordToGuess());
+                //   console.log("wordObject: " + wordToGuessObject.getWordToGuess());
 
 
                 let generatedWordExport = JSON.stringify(wordToGuessObject);
-                console.log("generatedWordExport: " + generatedWordExport);
+                //  console.log("generatedWordExport: " + generatedWordExport);
 
                 parsedWordToGuess = JSON.parse(generatedWordExport);
-                console.log("parsedWord: " + parsedWordToGuess.word);
+                // console.log("parsedWord: " + parsedWordToGuess.word);
 
                 formattedWordToGuess = parsedWordToGuess.word;
-                console.log(" formattedWordToGuess: " + formattedWordToGuess);
+                console.log(" function generateWord => formattedWordToGuess: " + formattedWordToGuess);
                 resolve(formattedWordToGuess);
 
             } else {
@@ -116,8 +116,7 @@ $(document).ready(function () {
     //- displays the letter picked
     function addelement(l) {
         let lettersCount = wordArray.length;
-        // lettersCount = lettersCount + 1;
-        console.log("letters count" + lettersCount)
+        // console.log("letters count" + lettersCount)
         var completeWord = document.getElementById(`try${guessNumber + 1}-${lettersCount}`);
         completeWord.innerHTML += l;
 
@@ -138,8 +137,8 @@ $(document).ready(function () {
 
             wordArray.push(clickedBtnID);
 
-            console.log(wordArray);
-            console.log(count);
+            // console.log(wordArray);
+            // console.log(count);
 
             addelement(clickedBtnID);
 
@@ -215,54 +214,34 @@ $(document).ready(function () {
                             alert("enough guesses");
                             $(elems).attr("disabled", "disable")
                         }
-                        console.log(count);
+                        //  console.log(count);
                         wordTested = new WordToTest(wordsubmitted, count);
                         lettersCheck(wordTested.getWordToTest());
                         wordArray = [];
                     }
 
-                    console.log("submit word data" + data.word)
+                    //  console.log("submit word data" + data.word)
 
-                    console.log("submit generatedWord data" + data.word)
+                    //  console.log("submit generatedWord data" + data.word)
 
-                    // wordObject = new WordToGuess(data.word);
+
                     let wordToFind = wordToGuessObject.getWordToGuess();
 
-                    console.log("submit wordObject =>>> " + wordToFind)
-                    //
+                    //  console.log("submit wordObject =>>> " + wordToFind)
+
                     let generatedWordExport = JSON.stringify(wordToFind);
-                    console.log("generatedWordExport >> " + generatedWordExport);
+                    //  console.log("generatedWordExport >> " + generatedWordExport);
 
 
                     let parsedWord = JSON.parse(generatedWordExport);
                     let formattedWord = parsedWord;
 
-                    console.log("parsedWord : " + parsedWord + " - formattedWord : " + formattedWord);
+                    //  console.log("parsedWord : " + parsedWord + " - formattedWord : " + formattedWord);
 
-                    // console.log("testing :" + wordObject);
-                    //  console.log(wordObject);
-                    // console.log('Success:', generatedWord);
+
 
                 })
-            // console.log("Word submitted: " + wordsubmitted);
-            // const dictionarySettings = {
-            //     "async": false,
-            //     "crossDomain": true,
-            //     "url": `https://dictionary-by-api-ninjas.p.rapidapi.com/v1/dictionary?word=${wordGuess}`,
-            //     "method": "GET",
-            //     "headers": {
-            //         "x-rapidapi-host": "dictionary-by-api-ninjas.p.rapidapi.com",
-            //         "x-rapidapi-key": "56bc15abd1msh8abeae14cab8d8ep1a87a3jsn2982dc6544e6"
-            //     }
-            // };
 
-            // $.ajax(dictionarySettings).done(function (response) {
-            //     const result = response;
-            //     console.log(result);
-            //     isValidWord = result.valid;
-            // });
-
-            //  isValidWord = true; // remove this when removing commented
             console.log(isValidWord);
 
 
@@ -339,11 +318,11 @@ $(document).ready(function () {
 
             if (letterWordToGuess === letterWordToTest.toLowerCase()) {
 
-                console.log("letter word to guess: " + letterWordToGuess + " /letter word to test: " + letterWordToTest + " so letter is valid");
+                //  console.log("letter word to guess: " + letterWordToGuess + " /letter word to test: " + letterWordToTest + " so letter is valid");
                 isValidLetter = true;
 
                 wtg.splice(i, 1, null);
-                console.log(">>>>>>>>>>>>>>> " + wtg);
+                //  console.log(">>>>>>>>>>>>>>> " + wtg);
 
                 userGuessArray.splice(i, 1, null);
 
@@ -351,17 +330,17 @@ $(document).ready(function () {
                     validLettersCount = validLettersCount + 1;
                     wordTested.validCount = validLettersCount;
                     $(listElement).css('background-color', rgBGreen);
-                    //  $(`#${letterWordToTest}`).css('background-color', '#2FC620');
+
                 }
-                console.log("word to guess after validated : " + wtg);
-                console.log("word to test after validated : " + userGuessArray);
+                // console.log("word to guess after validated : " + wtg);
+                // console.log("word to test after validated : " + userGuessArray);
 
 
-                console.log("WTG: " + wtg);
+                // console.log("WTG: " + wtg);
 
             }
 
-            // return wtg;
+
 
         }
 
@@ -408,7 +387,7 @@ $(document).ready(function () {
                 } else {
                     console.log(letterWordToTest2 + "not valid");
                     $(listElement2).css('background-color', rgbGrey);
-                    //  $(`#${letterWordToTest2}`).css('background-color', '#A3A6AD');
+
 
                 }
 
@@ -489,17 +468,6 @@ $(document).ready(function () {
     $(elems).on("click", pickLetters);
 
 
-    // $(validateWord).click(function (event) {
-    //     event.preventDefault();
-
-    //     submitWord();
-
-    // });
-
-
-
-
-
 
     class WordToTest {
         constructor(wordTest, counted, countValidLetters) {
@@ -525,7 +493,7 @@ $(document).ready(function () {
 
         isWordValid() {
             if (this.countValidLetters === 5) {
-                // alert("fail");
+
                 return true;
 
             } else {
