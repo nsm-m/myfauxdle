@@ -9,6 +9,9 @@ let wordToGuessObject;
 let formattedWordToGuess;
 
 $(document).ready(function () {
+
+    let wordCreated;
+    var newWord;
     let isGeneratedWordValid;
 
     async function wordValidation(wordInput) {
@@ -21,19 +24,14 @@ $(document).ready(function () {
 
 
                 isGeneratedWordValid = data.valid;
-                console.log("gennerated word valid?" + isGeneratedWordValid)
+               // console.log("gennerated word valid?" + isGeneratedWordValid)
             }
 
             )
         return isGeneratedWordValid;
     }
 
-    let wordCreated;
-    var newWord;
-
-
-    //generateWord()
-    // .then(alert("validate word :" + wordToGuessObject.getWordToGuess()))
+   
     generateWord().then(
         $(validateWord).click(function (event) {
             event.preventDefault();
@@ -53,28 +51,23 @@ $(document).ready(function () {
     async function generateWord() {
 
         return new Promise((resolve, reject) => {
+            
             let testWord = randomWords();
-
             let letterCount = testWord.length;
 
 
             if (letterCount == 5) {
 
-                console.log("letterCfount is 5");
-
                 wordValidation(testWord).then(
+
                     (validWord) => {
                         if (validWord = true) {
-                            console.log("gennerated word valid from generate word?" + isGeneratedWordValid);
-
+                           
                             let generatedWord = testWord;
-                            console.log("word has enought letter : Ready => " + generatedWord);
-
-
+                           // console.log("generatedWord variable Ready => " + generatedWord);
 
                             wordToGuessObject = new WordToGuess(generatedWord);
-                            //   console.log("wordObject: " + wordToGuessObject.getWordToGuess());
-
+       
 
                             let generatedWordExport = JSON.stringify(wordToGuessObject);
                             //  console.log("generatedWordExport: " + generatedWordExport);
@@ -83,27 +76,24 @@ $(document).ready(function () {
                             // console.log("parsedWord: " + parsedWordToGuess.word);
 
                             formattedWordToGuess = parsedWordToGuess.word;
-                            console.log(" function generateWord => formattedWordToGuess: " + formattedWordToGuess);
+                           // console.log(" function generateWord => formattedWordToGuess: " + formattedWordToGuess);
                             resolve(formattedWordToGuess);
 
-                            console.log(">>>>>> word generated is valid" + validWord)
+                            //console.log(">>>>>> word generated is valid" + validWord)
                         } else if (validWord = false) {
                             generateWord();
                             console.log("word generated is not in dictionary trying " + validWord)
                         }
 
-                        // Some task on success
+                    
                     }
                     ,
-                    //  (invalidWord) => {
-                    //      console.log("error")
-                    //     // Some task on failure
-                    // }
+               
                 );
 
 
             } else {
-                console.log(testWord + " doent have the right letter count trying again...");
+               // console.log(testWord + " doent have the right letter count trying again...");
                 generateWord();
 
             }
@@ -138,7 +128,7 @@ $(document).ready(function () {
     $(document).keydown(function (event) {
 
         if ((wordArray.length !== 0) && (event.key === "Backspace")) {
-            alert("del key pressed" + wordArray.length + "/" + event.key);
+           // alert("del key pressed" + wordArray.length + "/" + event.key);
             removeLetter();
 
         } else if ((wordArray.length < 5) && (count < MAX_GUESSES)) {
@@ -147,12 +137,12 @@ $(document).ready(function () {
             if (event.keyCode >= 65 && event.keyCode <= 90) {
                 let typedLetter = String.fromCharCode(event.keyCode);
                 let normalizedLetter = typedLetter.toLowerCase()
-                console.log(normalizedLetter);
+               // console.log(normalizedLetter);
                 wordArray.push(normalizedLetter);
                 addelement(normalizedLetter);
 
-                console.log(wordArray);
-                console.log(count);
+               // console.log(wordArray);
+              //  console.log(count);
             }
 
 
@@ -202,7 +192,7 @@ $(document).ready(function () {
 
         } else if (wordArray.length > 5) {
 
-            alert("enough letters validate input!: " + clickedBtnID);
+            alert(" Enough letters validate input! " );
 
         }
 
@@ -214,13 +204,12 @@ $(document).ready(function () {
 
     function removeLetter() {
         let lettersCount2 = wordArray.length;
-
         var currentWord = document.getElementById(`try${guessNumber + 1}-${lettersCount}`);
         console.log(lettersCount);
         if (lettersCount2 > 0) {
             wordArray.pop();
             $(`#try${guessNumber + 1}-${lettersCount2}`).text("");
-            console.log(wordArray);
+            //console.log(wordArray);
         }
     }
 
@@ -236,7 +225,8 @@ $(document).ready(function () {
     }
 
 
-
+    let isValidLetter;
+    let letterExist;
 
     let wordTested;
     let isValidWord;
@@ -304,7 +294,7 @@ $(document).ready(function () {
 
                 })
 
-            console.log(isValidWord);
+           // console.log(isValidWord);
 
 
 
@@ -318,7 +308,7 @@ $(document).ready(function () {
         }
 
 
-        // displayCount();
+  
 
         lettersCount = 0;
 
@@ -333,8 +323,7 @@ $(document).ready(function () {
     }
 
 
-    let isValidLetter;
-    let letterExist;
+    
 
 
     //  Compares the word to find vs the user input
@@ -342,7 +331,7 @@ $(document).ready(function () {
     function lettersCheck(wordGuess) {
 
         newWord = wordGuess;
-        console.log("to find" + formattedWordToGuess + "word to guess newWord from lettersCheck : " + newWord)
+    //    console.log("to find" + formattedWordToGuess + "word to guess newWord from lettersCheck : " + newWord)
         //  The 2 words are stored in 2 arrays:
         // - one for the word to guess
         // - a second for the users guess)
@@ -352,13 +341,15 @@ $(document).ready(function () {
 
         let validLettersCount = 0;
         let wordToGuess2 = formattedWordToGuess;
-        console.log("wordToGuess2 to string lettersCheck : " + wordToGuess2)
+
+      //  console.log("wordToGuess2 to string lettersCheck : " + wordToGuess2)
+
         let wtg = wordToGuess2.split('');
-        console.log("wtg to string lettersCheck : " + wtg);
+       // console.log("wtg to string lettersCheck : " + wtg);
         let userGuess = wordTested.getWordToTest();
         let userGuessArray = userGuess.split('');
 
-        console.log("userGuess : " + userGuess + "/ wordToGuess2  => " + wordToGuessObject.word);
+     //   console.log("userGuess : " + userGuess + "/ wordToGuess2  => " + wordToGuessObject.word);
 
 
         //  Step 1: Check valid letters 
@@ -422,12 +413,12 @@ $(document).ready(function () {
 
             let letterWordToTest2 = lWtT2;
             let listElement2 = document.getElementById(`try${guessNumber}-${test2}`);
-            console.log("test try" + guessNumber + "- " + test2);
+         //   console.log("test try" + guessNumber + "- " + test2);
 
 
 
-            //if ((letterWordToGuess2 != null) && (letterWordToTest2 != null)) {
-            console.log("exist test letter word to guess: " + letterWordToGuess2 + " /letter word to test: " + letterWordToTest2 + " so letter is not valid");
+          
+          //  console.log("exist test letter word to guess: " + letterWordToGuess2 + " /letter word to test: " + letterWordToTest2 + " so letter is not valid");
 
             if (letterWordToGuess2 !== letterWordToTest2) {
 
@@ -439,9 +430,9 @@ $(document).ready(function () {
                     userGuessArray.splice(i, 1, null);
                     wtg.splice(wtg.indexOf(letterWordToTest2), 1, null);
 
-                    console.log(letterWordToTest2 + " is included ");
+                   // console.log(letterWordToTest2 + " is included ");
                     $(listElement2).css('background-color', rgbYellow);
-                    //  $(`#${letterWordToTest2}`).css('background-color', '#FFC300');
+
                     if (letterExist === true) {
                         existingLetter(letterExist);
                     }
@@ -454,14 +445,14 @@ $(document).ready(function () {
                 }
 
             } else {
-                // console.log(letterWordToTest2 + "error");
+              
             }
 
 
-            console.log("word to guess after : " + wtg);
-            console.log("word to test after: " + userGuessArray);
+            // console.log("word to guess after : " + wtg);
+            // console.log("word to test after: " + userGuessArray);
 
-            //  }
+          
         }
 
         console.log(wordTested);
@@ -471,8 +462,6 @@ $(document).ready(function () {
 
 
         if (wordTested.isWordValid() === true) {
-
-
 
             alert("found");
             $(elems).attr("disabled", "disable")
@@ -529,12 +518,6 @@ $(document).ready(function () {
 
     $(elems).on("click", pickLetters);
 
-    //     document.addEventListener("keydown", (event) => {
-    //     if(event.key === "Backspace"){
-    // //alert("del key pressed");
-    // removeLetter();
-    //     }
-    //     })
 
     class WordToTest {
         constructor(wordTest, counted, countValidLetters) {
