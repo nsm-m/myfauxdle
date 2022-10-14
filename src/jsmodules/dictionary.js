@@ -438,7 +438,7 @@ $(document).ready(function () {
                     }
 
                 } else {
-                    console.log(letterWordToTest2 + "not valid");
+                  //  console.log(letterWordToTest2 + "not valid");
                     $(listElement2).css('background-color', rgbGrey);
 
 
@@ -455,7 +455,7 @@ $(document).ready(function () {
           
         }
 
-        console.log(wordTested);
+     //   console.log(wordTested);
         lettersKeyboard();
 
         // If all the letters are valid generate alert and disable keyboard
@@ -463,7 +463,7 @@ $(document).ready(function () {
 
         if (wordTested.isWordValid() === true) {
 
-            alert("found");
+           // alert("found");
             $(elems).attr("disabled", "disable")
 
 
@@ -491,7 +491,7 @@ $(document).ready(function () {
             let letterTested = userGuessArray3[i];
 
             let letterWordToTest2 = letterTested;
-            console.log("letter to find " + letterToFind + "letter tested " + letterTested);
+         //   console.log("letter to find " + letterToFind + "letter tested " + letterTested);
             if (letterToFind === letterTested) {
                 $(`#${letterTested}`).css('background-color', rgBGreen);
 
