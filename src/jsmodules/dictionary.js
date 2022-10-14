@@ -7,7 +7,7 @@ var validateWord = document.getElementById("submit");
 let parsedWordToGuess;
 let wordToGuessObject;
 let formattedWordToGuess;
- 
+
 $(document).ready(function () {
     let isGeneratedWordValid;
 
@@ -137,12 +137,13 @@ $(document).ready(function () {
 
     $(document).keydown(function (event) {
 
-        if (event.key === "Backspace") {
-            //alert("del key pressed");
+        if ((wordArray.length !== 0) && (event.key === "Backspace")) {
+            alert("del key pressed" + wordArray.length + "/" + event.key);
             removeLetter();
-        }
 
-        if ((wordArray.length < 5) && (count < MAX_GUESSES)) {
+        } else if ((wordArray.length < 5) && (count < MAX_GUESSES)) {
+
+
             if (event.keyCode >= 65 && event.keyCode <= 90) {
                 let typedLetter = String.fromCharCode(event.keyCode);
                 let normalizedLetter = typedLetter.toLowerCase()
@@ -155,12 +156,16 @@ $(document).ready(function () {
             }
 
 
-        } else if (event.key !== "Backspace" && wordArray.length === 5) {
-            alert("enough letters validate input!");
+        } else if ((wordArray.length === 5)) {
+            if (event.key === "Enter") {
+                submitWord();
+            } else {
 
-        } 
-        
-   
+                alert("enough letters validate input!");
+
+            }
+        }
+
 
     });
 
@@ -185,9 +190,9 @@ $(document).ready(function () {
         var clickedBtnID = $(this).attr('value');
 
         // letter count check
-        console.log("clickedBtnID:" + clickedBtnID);
+        // console.log("clickedBtnID:" + clickedBtnID);
         if ((wordArray.length < 5) && (count < MAX_GUESSES)) {
-          
+
             wordArray.push(clickedBtnID);
 
             // console.log(wordArray);
@@ -195,8 +200,8 @@ $(document).ready(function () {
 
             addelement(clickedBtnID);
 
-        } else if (wordArray.length > 5  ) {
- 
+        } else if (wordArray.length > 5) {
+
             alert("enough letters validate input!: " + clickedBtnID);
 
         }
@@ -212,10 +217,10 @@ $(document).ready(function () {
 
         var currentWord = document.getElementById(`try${guessNumber + 1}-${lettersCount}`);
         console.log(lettersCount);
-        if(lettersCount2 > 0 ){
-        wordArray.pop();
-        $(`#try${guessNumber + 1}-${lettersCount2}`).text("");
-        console.log(wordArray);
+        if (lettersCount2 > 0) {
+            wordArray.pop();
+            $(`#try${guessNumber + 1}-${lettersCount2}`).text("");
+            console.log(wordArray);
         }
     }
 
@@ -524,12 +529,12 @@ $(document).ready(function () {
 
     $(elems).on("click", pickLetters);
 
-//     document.addEventListener("keydown", (event) => {
-//     if(event.key === "Backspace"){
-// //alert("del key pressed");
-// removeLetter();
-//     }
-//     })
+    //     document.addEventListener("keydown", (event) => {
+    //     if(event.key === "Backspace"){
+    // //alert("del key pressed");
+    // removeLetter();
+    //     }
+    //     })
 
     class WordToTest {
         constructor(wordTest, counted, countValidLetters) {
