@@ -22,7 +22,6 @@ $(document).ready(function () {
 
             ).then(data => {
 
-
                 isGeneratedWordValid = data.valid;
                // console.log("gennerated word valid?" + isGeneratedWordValid)
             }
@@ -205,7 +204,7 @@ $(document).ready(function () {
     function removeLetter() {
         let lettersCount2 = wordArray.length;
         var currentWord = document.getElementById(`try${guessNumber + 1}-${lettersCount}`);
-        console.log(lettersCount);
+       // console.log(lettersCount);
         if (lettersCount2 > 0) {
             wordArray.pop();
             $(`#try${guessNumber + 1}-${lettersCount2}`).text("");
@@ -234,7 +233,7 @@ $(document).ready(function () {
 
     async function submitWord() {
 
-        alert("submit test");
+      //  alert("submit test");
 
         if ((count < MAX_GUESSES) && (wordArray.length === 5)) {
 
