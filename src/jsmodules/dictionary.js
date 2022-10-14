@@ -7,14 +7,34 @@ var validateWord = document.getElementById("submit");
 let parsedWordToGuess;
 let wordToGuessObject;
 let formattedWordToGuess;
-
+ 
 $(document).ready(function () {
+    let isGeneratedWordValid;
+
+    async function wordValidation(wordInput) {
+        await fetch(`/.netlify/functions/dictionary-check?wordGuess=${wordInput}`)
+            .then(res =>
+
+                res.json()
+
+            ).then(data => {
+
+
+                isGeneratedWordValid = data.valid;
+                console.log("gennerated word valid?" + isGeneratedWordValid)
+            }
+
+            )
+        return isGeneratedWordValid;
+    }
 
     let wordCreated;
     var newWord;
 
 
-    generateWord().then(alert("validate word :" + wordToGuessObject.getWordToGuess())).then(
+    //generateWord()
+    // .then(alert("validate word :" + wordToGuessObject.getWordToGuess()))
+    generateWord().then(
         $(validateWord).click(function (event) {
             event.preventDefault();
 
@@ -39,22 +59,48 @@ $(document).ready(function () {
 
 
             if (letterCount == 5) {
-                let generatedWord = testWord;
-                console.log("word has enought letter : Ready => " + generatedWord);
 
-                wordToGuessObject = new WordToGuess(generatedWord);
-                //   console.log("wordObject: " + wordToGuessObject.getWordToGuess());
+                console.log("letterCfount is 5");
+
+                wordValidation(testWord).then(
+                    (validWord) => {
+                        if (validWord = true) {
+                            console.log("gennerated word valid from generate word?" + isGeneratedWordValid);
+
+                            let generatedWord = testWord;
+                            console.log("word has enought letter : Ready => " + generatedWord);
 
 
-                let generatedWordExport = JSON.stringify(wordToGuessObject);
-                //  console.log("generatedWordExport: " + generatedWordExport);
 
-                parsedWordToGuess = JSON.parse(generatedWordExport);
-                // console.log("parsedWord: " + parsedWordToGuess.word);
+                            wordToGuessObject = new WordToGuess(generatedWord);
+                            //   console.log("wordObject: " + wordToGuessObject.getWordToGuess());
 
-                formattedWordToGuess = parsedWordToGuess.word;
-                console.log(" function generateWord => formattedWordToGuess: " + formattedWordToGuess);
-                resolve(formattedWordToGuess);
+
+                            let generatedWordExport = JSON.stringify(wordToGuessObject);
+                            //  console.log("generatedWordExport: " + generatedWordExport);
+
+                            parsedWordToGuess = JSON.parse(generatedWordExport);
+                            // console.log("parsedWord: " + parsedWordToGuess.word);
+
+                            formattedWordToGuess = parsedWordToGuess.word;
+                            console.log(" function generateWord => formattedWordToGuess: " + formattedWordToGuess);
+                            resolve(formattedWordToGuess);
+
+                            console.log(">>>>>> word generated is valid" + validWord)
+                        } else if (validWord = false) {
+                            generateWord();
+                            console.log("word generated is not in dictionary trying " + validWord)
+                        }
+
+                        // Some task on success
+                    }
+                    ,
+                    //  (invalidWord) => {
+                    //      console.log("error")
+                    //     // Some task on failure
+                    // }
+                );
+
 
             } else {
                 console.log(testWord + " doent have the right letter count trying again...");
@@ -91,6 +137,11 @@ $(document).ready(function () {
 
     $(document).keydown(function (event) {
 
+        if (event.key === "Backspace") {
+            //alert("del key pressed");
+            removeLetter();
+        }
+
         if ((wordArray.length < 5) && (count < MAX_GUESSES)) {
             if (event.keyCode >= 65 && event.keyCode <= 90) {
                 let typedLetter = String.fromCharCode(event.keyCode);
@@ -104,10 +155,12 @@ $(document).ready(function () {
             }
 
 
-        } else if (wordArray.length === 5) {
+        } else if (event.key !== "Backspace" && wordArray.length === 5) {
             alert("enough letters validate input!");
 
-        }
+        } 
+        
+   
 
     });
 
@@ -132,9 +185,9 @@ $(document).ready(function () {
         var clickedBtnID = $(this).attr('value');
 
         // letter count check
-
+        console.log("clickedBtnID:" + clickedBtnID);
         if ((wordArray.length < 5) && (count < MAX_GUESSES)) {
-
+          
             wordArray.push(clickedBtnID);
 
             // console.log(wordArray);
@@ -142,8 +195,9 @@ $(document).ready(function () {
 
             addelement(clickedBtnID);
 
-        } else if (wordArray.length === 5) {
-            alert("enough letters validate input!");
+        } else if (wordArray.length > 5  ) {
+ 
+            alert("enough letters validate input!: " + clickedBtnID);
 
         }
 
@@ -155,11 +209,14 @@ $(document).ready(function () {
 
     function removeLetter() {
         let lettersCount2 = wordArray.length;
+
         var currentWord = document.getElementById(`try${guessNumber + 1}-${lettersCount}`);
         console.log(lettersCount);
+        if(lettersCount2 > 0 ){
         wordArray.pop();
         $(`#try${guessNumber + 1}-${lettersCount2}`).text("");
         console.log(wordArray);
+        }
     }
 
 
@@ -463,11 +520,16 @@ $(document).ready(function () {
     }
 
 
-
     $(deleteLetter).on("click", removeLetter);
+
     $(elems).on("click", pickLetters);
 
-
+//     document.addEventListener("keydown", (event) => {
+//     if(event.key === "Backspace"){
+// //alert("del key pressed");
+// removeLetter();
+//     }
+//     })
 
     class WordToTest {
         constructor(wordTest, counted, countValidLetters) {
