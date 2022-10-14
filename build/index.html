@@ -1,1 +1,147 @@
-<!doctype html><html lang="en"><head><meta charset="UTF-8"><title></title><meta name="description" content=""><meta name="viewport" content="width=device-width,initial-scale=1"><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet"><script defer="defer" src="/app.js"></script><link href="/index.css" rel="stylesheet"></head><body><header><div class="header-wrapper"><h1>Fauxdle!</h1></div></header><section class="words"><div class="user-guesses"><table><tr class="try1" id="try1"><td id="try1-1"></td><td id="try1-2"></td><td id="try1-3"></td><td id="try1-4"></td><td id="try1-5"></td></tr><tr class="try2" id="try2"><td id="try2-1"></td><td id="try2-2"></td><td id="try2-3"></td><td id="try2-4"></td><td id="try2-5"></td></tr><tr class="try3" id="try3"><td id="try3-1"></td><td id="try3-2"></td><td id="try3-3"></td><td id="try3-4"></td><td id="try3-5"></td></tr><tr class="try4" id="try4"><td id="try4-1"></td><td id="try4-2"></td><td id="try4-3"></td><td id="try4-4"></td><td id="try4-5"></td></tr><tr class="try5" id="try5"><td id="try5-1"></td><td id="try5-2"></td><td id="try5-3"></td><td id="try5-4"></td><td id="try5-5"></td></tr><tr class="try6" id="try6"><td id="try6-1"></td><td id="try6-2"></td><td id="try6-3"></td><td id="try6-4"></td><td id="try6-5"></td></tr></table></div></section><section class="keyboard-wrapper"><div class="keyboard"><div><input type="button" class="letter" value="q" id="q"> <input type="button" class="letter" value="w" id="w"> <input type="button" class="letter" value="e" id="e"> <input type="button" class="letter" value="r" id="r"> <input type="button" class="letter" value="t" id="t"> <input type="button" class="letter" value="y" id="y"> <input type="button" class="letter" value="u" id="u"> <input type="button" class="letter" value="i" id="i"> <input type="button" class="letter" value="o" id="o"> <input type="button" class="letter" value="p" id="p"></div><div><input type="button" class="letter" value="a" id="a"> <input type="button" class="letter" value="s" id="s"> <input type="button" class="letter" value="d" id="d"> <input type="button" class="letter" value="f" id="f"> <input type="button" class="letter" value="g" id="g"> <input type="button" class="letter" value="h" id="h"> <input type="button" class="letter" value="j" id="j"> <input type="button" class="letter" value="k" id="k"> <input type="button" class="letter" value="l" id="l"></div><div><input type="button" class="letter" value="z" id="z"> <input type="button" class="letter" value="x" id="x"> <input type="button" class="letter" value="c" id="c"> <input type="button" class="letter" value="v" id="v"> <input type="button" class="letter" value="b" id="b"> <input type="button" class="letter" value="n" id="n"> <input type="button" class="letter" value="m" id="m"></div><div><input id="delete" type="button" value="delete"> <input type="button" id="submit" value="Submit"></div></div></section><footer><div class="footer-wrapper"><h2>Thank you for playing! ;)</h2></div></footer></body></html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+
+    <!-- <script defer src="app.js"></script> -->
+<script defer src="/app.js"></script><link href="/index.css" rel="stylesheet"></head>
+
+<body>
+
+    <header>
+        <div class="header-wrapper">
+            <h1>Fauxdle!</h1>
+        </div>
+
+    </header>
+
+    <section class="words">
+        <!-- <div class="random-word">
+            <p class="word-to-guess"></p>
+            <p class="count" id="count">
+
+            </p>
+            <p class="word-to-find" id="word-to-find">
+
+            </p>
+        </div> -->
+        <!-- <div class="test"></div> -->
+        <div class="user-guesses">
+
+            <table>
+
+                <tr class="try1" id="try1">
+                    <td id="try1-1"></td>
+                    <td id="try1-2"></td>
+                    <td id="try1-3"></td>
+                    <td id="try1-4"></td>
+                    <td id="try1-5"></td>
+                </tr>
+                <tr class="try2" id="try2">
+                    <td id="try2-1"></td>
+                    <td id="try2-2"></td>
+                    <td id="try2-3"></td>
+                    <td id="try2-4"></td>
+                    <td id="try2-5"></td>
+                </tr>
+                <tr class="try3" id="try3">
+                    <td id="try3-1"></td>
+                    <td id="try3-2"></td>
+                    <td id="try3-3"></td>
+                    <td id="try3-4"></td>
+                    <td id="try3-5"></td>
+                </tr>
+                <tr class="try4" id="try4">
+                    <td id="try4-1"></td>
+                    <td id="try4-2"></td>
+                    <td id="try4-3"></td>
+                    <td id="try4-4"></td>
+                    <td id="try4-5"></td>
+                </tr>
+                <tr class="try5" id="try5">
+                    <td id="try5-1"></td>
+                    <td id="try5-2"></td>
+                    <td id="try5-3"></td>
+                    <td id="try5-4"></td>
+                    <td id="try5-5"></td>
+                </tr>
+                <tr class="try6" id="try6">
+                    <td id="try6-1"></td>
+                    <td id="try6-2"></td>
+                    <td id="try6-3"></td>
+                    <td id="try6-4"></td>
+                    <td id="try6-5"></td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+
+
+    <section class="keyboard-wrapper">
+
+        <div class="keyboard">
+
+            <div>
+                <input type="button" class="letter" value="q" id="q">
+                <input type="button" class="letter" value="w" id="w">
+                <input type="button" class="letter" value="e" id="e">
+                <input type="button" class="letter" value="r" id="r">
+                <input type="button" class="letter" value="t" id="t">
+                <input type="button" class="letter" value="y" id="y">
+                <input type="button" class="letter" value="u" id="u">
+                <input type="button" class="letter" value="i" id="i">
+                <input type="button" class="letter" value="o" id="o">
+                <input type="button" class="letter" value="p" id="p">
+            </div>
+            <div>
+                <input type="button" class="letter" value="a" id="a">
+                <input type="button" class="letter" value="s" id="s">
+                <input type="button" class="letter" value="d" id="d">
+                <input type="button" class="letter" value="f" id="f">
+                <input type="button" class="letter" value="g" id="g">
+                <input type="button" class="letter" value="h" id="h">
+                <input type="button" class="letter" value="j" id="j">
+                <input type="button" class="letter" value="k" id="k">
+                <input type="button" class="letter" value="l" id="l">
+            </div>
+            <div>
+                <input type="button" class="letter" value="z" id="z">
+                <input type="button" class="letter" value="x" id="x">
+                <input type="button" class="letter" value="c" id="c">
+                <input type="button" class="letter" value="v" id="v">
+                <input type="button" class="letter" value="b" id="b">
+                <input type="button" class="letter" value="n" id="n">
+                <input type="button" class="letter" value="m" id="m">
+            </div>
+            <div>
+                <input id="delete" type="button" value="delete">
+
+                <input type="button" id="submit" value="Submit">
+            </div>
+
+        </div>
+
+    </section>
+
+    <footer>
+        <div class="footer-wrapper">
+            <h2>Thank you for playing! ;)</h2>
+        </div>
+
+    </footer>
+
+
+
+
+</body>
+
+</html>

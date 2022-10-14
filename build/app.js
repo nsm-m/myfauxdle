@@ -1,474 +1,140 @@
+/*
+ * ATTENTION: The "eval" devtool has been used (maybe by default in mode: "development").
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
 /******/ (() => { // webpackBootstrap
-/******/ 	"use strict";
-var __webpack_exports__ = {};
-
-;// CONCATENATED MODULE: ./src/jsmodules/wordGenerator.js
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-
-function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return exports; }; var exports = {}, Op = Object.prototype, hasOwn = Op.hasOwnProperty, $Symbol = "function" == typeof Symbol ? Symbol : {}, iteratorSymbol = $Symbol.iterator || "@@iterator", asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator", toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag"; function define(obj, key, value) { return Object.defineProperty(obj, key, { value: value, enumerable: !0, configurable: !0, writable: !0 }), obj[key]; } try { define({}, ""); } catch (err) { define = function define(obj, key, value) { return obj[key] = value; }; } function wrap(innerFn, outerFn, self, tryLocsList) { var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator, generator = Object.create(protoGenerator.prototype), context = new Context(tryLocsList || []); return generator._invoke = function (innerFn, self, context) { var state = "suspendedStart"; return function (method, arg) { if ("executing" === state) throw new Error("Generator is already running"); if ("completed" === state) { if ("throw" === method) throw arg; return doneResult(); } for (context.method = method, context.arg = arg;;) { var delegate = context.delegate; if (delegate) { var delegateResult = maybeInvokeDelegate(delegate, context); if (delegateResult) { if (delegateResult === ContinueSentinel) continue; return delegateResult; } } if ("next" === context.method) context.sent = context._sent = context.arg;else if ("throw" === context.method) { if ("suspendedStart" === state) throw state = "completed", context.arg; context.dispatchException(context.arg); } else "return" === context.method && context.abrupt("return", context.arg); state = "executing"; var record = tryCatch(innerFn, self, context); if ("normal" === record.type) { if (state = context.done ? "completed" : "suspendedYield", record.arg === ContinueSentinel) continue; return { value: record.arg, done: context.done }; } "throw" === record.type && (state = "completed", context.method = "throw", context.arg = record.arg); } }; }(innerFn, self, context), generator; } function tryCatch(fn, obj, arg) { try { return { type: "normal", arg: fn.call(obj, arg) }; } catch (err) { return { type: "throw", arg: err }; } } exports.wrap = wrap; var ContinueSentinel = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var IteratorPrototype = {}; define(IteratorPrototype, iteratorSymbol, function () { return this; }); var getProto = Object.getPrototypeOf, NativeIteratorPrototype = getProto && getProto(getProto(values([]))); NativeIteratorPrototype && NativeIteratorPrototype !== Op && hasOwn.call(NativeIteratorPrototype, iteratorSymbol) && (IteratorPrototype = NativeIteratorPrototype); var Gp = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(IteratorPrototype); function defineIteratorMethods(prototype) { ["next", "throw", "return"].forEach(function (method) { define(prototype, method, function (arg) { return this._invoke(method, arg); }); }); } function AsyncIterator(generator, PromiseImpl) { function invoke(method, arg, resolve, reject) { var record = tryCatch(generator[method], generator, arg); if ("throw" !== record.type) { var result = record.arg, value = result.value; return value && "object" == _typeof(value) && hasOwn.call(value, "__await") ? PromiseImpl.resolve(value.__await).then(function (value) { invoke("next", value, resolve, reject); }, function (err) { invoke("throw", err, resolve, reject); }) : PromiseImpl.resolve(value).then(function (unwrapped) { result.value = unwrapped, resolve(result); }, function (error) { return invoke("throw", error, resolve, reject); }); } reject(record.arg); } var previousPromise; this._invoke = function (method, arg) { function callInvokeWithMethodAndArg() { return new PromiseImpl(function (resolve, reject) { invoke(method, arg, resolve, reject); }); } return previousPromise = previousPromise ? previousPromise.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); }; } function maybeInvokeDelegate(delegate, context) { var method = delegate.iterator[context.method]; if (undefined === method) { if (context.delegate = null, "throw" === context.method) { if (delegate.iterator["return"] && (context.method = "return", context.arg = undefined, maybeInvokeDelegate(delegate, context), "throw" === context.method)) return ContinueSentinel; context.method = "throw", context.arg = new TypeError("The iterator does not provide a 'throw' method"); } return ContinueSentinel; } var record = tryCatch(method, delegate.iterator, context.arg); if ("throw" === record.type) return context.method = "throw", context.arg = record.arg, context.delegate = null, ContinueSentinel; var info = record.arg; return info ? info.done ? (context[delegate.resultName] = info.value, context.next = delegate.nextLoc, "return" !== context.method && (context.method = "next", context.arg = undefined), context.delegate = null, ContinueSentinel) : info : (context.method = "throw", context.arg = new TypeError("iterator result is not an object"), context.delegate = null, ContinueSentinel); } function pushTryEntry(locs) { var entry = { tryLoc: locs[0] }; 1 in locs && (entry.catchLoc = locs[1]), 2 in locs && (entry.finallyLoc = locs[2], entry.afterLoc = locs[3]), this.tryEntries.push(entry); } function resetTryEntry(entry) { var record = entry.completion || {}; record.type = "normal", delete record.arg, entry.completion = record; } function Context(tryLocsList) { this.tryEntries = [{ tryLoc: "root" }], tryLocsList.forEach(pushTryEntry, this), this.reset(!0); } function values(iterable) { if (iterable) { var iteratorMethod = iterable[iteratorSymbol]; if (iteratorMethod) return iteratorMethod.call(iterable); if ("function" == typeof iterable.next) return iterable; if (!isNaN(iterable.length)) { var i = -1, next = function next() { for (; ++i < iterable.length;) { if (hasOwn.call(iterable, i)) return next.value = iterable[i], next.done = !1, next; } return next.value = undefined, next.done = !0, next; }; return next.next = next; } } return { next: doneResult }; } function doneResult() { return { value: undefined, done: !0 }; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, define(Gp, "constructor", GeneratorFunctionPrototype), define(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, toStringTagSymbol, "GeneratorFunction"), exports.isGeneratorFunction = function (genFun) { var ctor = "function" == typeof genFun && genFun.constructor; return !!ctor && (ctor === GeneratorFunction || "GeneratorFunction" === (ctor.displayName || ctor.name)); }, exports.mark = function (genFun) { return Object.setPrototypeOf ? Object.setPrototypeOf(genFun, GeneratorFunctionPrototype) : (genFun.__proto__ = GeneratorFunctionPrototype, define(genFun, toStringTagSymbol, "GeneratorFunction")), genFun.prototype = Object.create(Gp), genFun; }, exports.awrap = function (arg) { return { __await: arg }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, asyncIteratorSymbol, function () { return this; }), exports.AsyncIterator = AsyncIterator, exports.async = function (innerFn, outerFn, self, tryLocsList, PromiseImpl) { void 0 === PromiseImpl && (PromiseImpl = Promise); var iter = new AsyncIterator(wrap(innerFn, outerFn, self, tryLocsList), PromiseImpl); return exports.isGeneratorFunction(outerFn) ? iter : iter.next().then(function (result) { return result.done ? result.value : iter.next(); }); }, defineIteratorMethods(Gp), define(Gp, toStringTagSymbol, "Generator"), define(Gp, iteratorSymbol, function () { return this; }), define(Gp, "toString", function () { return "[object Generator]"; }), exports.keys = function (object) { var keys = []; for (var key in object) { keys.push(key); } return keys.reverse(), function next() { for (; keys.length;) { var key = keys.pop(); if (key in object) return next.value = key, next.done = !1, next; } return next.done = !0, next; }; }, exports.values = values, Context.prototype = { constructor: Context, reset: function reset(skipTempReset) { if (this.prev = 0, this.next = 0, this.sent = this._sent = undefined, this.done = !1, this.delegate = null, this.method = "next", this.arg = undefined, this.tryEntries.forEach(resetTryEntry), !skipTempReset) for (var name in this) { "t" === name.charAt(0) && hasOwn.call(this, name) && !isNaN(+name.slice(1)) && (this[name] = undefined); } }, stop: function stop() { this.done = !0; var rootRecord = this.tryEntries[0].completion; if ("throw" === rootRecord.type) throw rootRecord.arg; return this.rval; }, dispatchException: function dispatchException(exception) { if (this.done) throw exception; var context = this; function handle(loc, caught) { return record.type = "throw", record.arg = exception, context.next = loc, caught && (context.method = "next", context.arg = undefined), !!caught; } for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i], record = entry.completion; if ("root" === entry.tryLoc) return handle("end"); if (entry.tryLoc <= this.prev) { var hasCatch = hasOwn.call(entry, "catchLoc"), hasFinally = hasOwn.call(entry, "finallyLoc"); if (hasCatch && hasFinally) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } else if (hasCatch) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); } else { if (!hasFinally) throw new Error("try statement without catch or finally"); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } } } }, abrupt: function abrupt(type, arg) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc <= this.prev && hasOwn.call(entry, "finallyLoc") && this.prev < entry.finallyLoc) { var finallyEntry = entry; break; } } finallyEntry && ("break" === type || "continue" === type) && finallyEntry.tryLoc <= arg && arg <= finallyEntry.finallyLoc && (finallyEntry = null); var record = finallyEntry ? finallyEntry.completion : {}; return record.type = type, record.arg = arg, finallyEntry ? (this.method = "next", this.next = finallyEntry.finallyLoc, ContinueSentinel) : this.complete(record); }, complete: function complete(record, afterLoc) { if ("throw" === record.type) throw record.arg; return "break" === record.type || "continue" === record.type ? this.next = record.arg : "return" === record.type ? (this.rval = this.arg = record.arg, this.method = "return", this.next = "end") : "normal" === record.type && afterLoc && (this.next = afterLoc), ContinueSentinel; }, finish: function finish(finallyLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.finallyLoc === finallyLoc) return this.complete(entry.completion, entry.afterLoc), resetTryEntry(entry), ContinueSentinel; } }, "catch": function _catch(tryLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc === tryLoc) { var record = entry.completion; if ("throw" === record.type) { var thrown = record.arg; resetTryEntry(entry); } return thrown; } } throw new Error("illegal catch attempt"); }, delegateYield: function delegateYield(iterable, resultName, nextLoc) { return this.delegate = { iterator: values(iterable), resultName: resultName, nextLoc: nextLoc }, "next" === this.method && (this.arg = undefined), ContinueSentinel; } }, exports; }
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-
-var generatedWord = "";
-var wordObject;
-var generatedWordExport;
-var formattedWord;
-var WordToGuess = /*#__PURE__*/function () {
-  function WordToGuess(word) {
-    _classCallCheck(this, WordToGuess);
-
-    this.word = word;
-  }
-
-  _createClass(WordToGuess, [{
-    key: "getWordToGuess",
-    value: function getWordToGuess() {
-      return this.word;
-    }
-  }]);
-
-  return WordToGuess;
-}();
-function generateWord() {
-  return _generateWord.apply(this, arguments);
-} //generateWord();
-
-function _generateWord() {
-  _generateWord = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-    return _regeneratorRuntime().wrap(function _callee$(_context) {
-      while (1) {
-        switch (_context.prev = _context.next) {
-          case 0:
-            _context.next = 2;
-            return fetch("/.netlify/functions/random-word").then(function (res) {
-              return res.json();
-            }).then(function (data) {
-              generatedWord = data;
-              wordObject = new WordToGuess(generatedWord);
-              generatedWordExport = JSON.stringify(wordObject);
-              var parsedWord = JSON.parse(generatedWordExport);
-              formattedWord = parsedWord.word; //  console.log("testing" + formattedWord);
-              //  console.log(wordObject);
-              //  console.log('Success:', generatedWord);
-            });
-
-          case 2:
-            return _context.abrupt("return", formattedWord);
-
-          case 3:
-          case "end":
-            return _context.stop();
-        }
-      }
-    }, _callee);
-  }));
-  return _generateWord.apply(this, arguments);
-}
-;// CONCATENATED MODULE: ./src/jsmodules/dictionary.js
-function dictionary_typeof(obj) { "@babel/helpers - typeof"; return dictionary_typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, dictionary_typeof(obj); }
-
-function dictionary_regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ dictionary_regeneratorRuntime = function _regeneratorRuntime() { return exports; }; var exports = {}, Op = Object.prototype, hasOwn = Op.hasOwnProperty, $Symbol = "function" == typeof Symbol ? Symbol : {}, iteratorSymbol = $Symbol.iterator || "@@iterator", asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator", toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag"; function define(obj, key, value) { return Object.defineProperty(obj, key, { value: value, enumerable: !0, configurable: !0, writable: !0 }), obj[key]; } try { define({}, ""); } catch (err) { define = function define(obj, key, value) { return obj[key] = value; }; } function wrap(innerFn, outerFn, self, tryLocsList) { var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator, generator = Object.create(protoGenerator.prototype), context = new Context(tryLocsList || []); return generator._invoke = function (innerFn, self, context) { var state = "suspendedStart"; return function (method, arg) { if ("executing" === state) throw new Error("Generator is already running"); if ("completed" === state) { if ("throw" === method) throw arg; return doneResult(); } for (context.method = method, context.arg = arg;;) { var delegate = context.delegate; if (delegate) { var delegateResult = maybeInvokeDelegate(delegate, context); if (delegateResult) { if (delegateResult === ContinueSentinel) continue; return delegateResult; } } if ("next" === context.method) context.sent = context._sent = context.arg;else if ("throw" === context.method) { if ("suspendedStart" === state) throw state = "completed", context.arg; context.dispatchException(context.arg); } else "return" === context.method && context.abrupt("return", context.arg); state = "executing"; var record = tryCatch(innerFn, self, context); if ("normal" === record.type) { if (state = context.done ? "completed" : "suspendedYield", record.arg === ContinueSentinel) continue; return { value: record.arg, done: context.done }; } "throw" === record.type && (state = "completed", context.method = "throw", context.arg = record.arg); } }; }(innerFn, self, context), generator; } function tryCatch(fn, obj, arg) { try { return { type: "normal", arg: fn.call(obj, arg) }; } catch (err) { return { type: "throw", arg: err }; } } exports.wrap = wrap; var ContinueSentinel = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var IteratorPrototype = {}; define(IteratorPrototype, iteratorSymbol, function () { return this; }); var getProto = Object.getPrototypeOf, NativeIteratorPrototype = getProto && getProto(getProto(values([]))); NativeIteratorPrototype && NativeIteratorPrototype !== Op && hasOwn.call(NativeIteratorPrototype, iteratorSymbol) && (IteratorPrototype = NativeIteratorPrototype); var Gp = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(IteratorPrototype); function defineIteratorMethods(prototype) { ["next", "throw", "return"].forEach(function (method) { define(prototype, method, function (arg) { return this._invoke(method, arg); }); }); } function AsyncIterator(generator, PromiseImpl) { function invoke(method, arg, resolve, reject) { var record = tryCatch(generator[method], generator, arg); if ("throw" !== record.type) { var result = record.arg, value = result.value; return value && "object" == dictionary_typeof(value) && hasOwn.call(value, "__await") ? PromiseImpl.resolve(value.__await).then(function (value) { invoke("next", value, resolve, reject); }, function (err) { invoke("throw", err, resolve, reject); }) : PromiseImpl.resolve(value).then(function (unwrapped) { result.value = unwrapped, resolve(result); }, function (error) { return invoke("throw", error, resolve, reject); }); } reject(record.arg); } var previousPromise; this._invoke = function (method, arg) { function callInvokeWithMethodAndArg() { return new PromiseImpl(function (resolve, reject) { invoke(method, arg, resolve, reject); }); } return previousPromise = previousPromise ? previousPromise.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); }; } function maybeInvokeDelegate(delegate, context) { var method = delegate.iterator[context.method]; if (undefined === method) { if (context.delegate = null, "throw" === context.method) { if (delegate.iterator["return"] && (context.method = "return", context.arg = undefined, maybeInvokeDelegate(delegate, context), "throw" === context.method)) return ContinueSentinel; context.method = "throw", context.arg = new TypeError("The iterator does not provide a 'throw' method"); } return ContinueSentinel; } var record = tryCatch(method, delegate.iterator, context.arg); if ("throw" === record.type) return context.method = "throw", context.arg = record.arg, context.delegate = null, ContinueSentinel; var info = record.arg; return info ? info.done ? (context[delegate.resultName] = info.value, context.next = delegate.nextLoc, "return" !== context.method && (context.method = "next", context.arg = undefined), context.delegate = null, ContinueSentinel) : info : (context.method = "throw", context.arg = new TypeError("iterator result is not an object"), context.delegate = null, ContinueSentinel); } function pushTryEntry(locs) { var entry = { tryLoc: locs[0] }; 1 in locs && (entry.catchLoc = locs[1]), 2 in locs && (entry.finallyLoc = locs[2], entry.afterLoc = locs[3]), this.tryEntries.push(entry); } function resetTryEntry(entry) { var record = entry.completion || {}; record.type = "normal", delete record.arg, entry.completion = record; } function Context(tryLocsList) { this.tryEntries = [{ tryLoc: "root" }], tryLocsList.forEach(pushTryEntry, this), this.reset(!0); } function values(iterable) { if (iterable) { var iteratorMethod = iterable[iteratorSymbol]; if (iteratorMethod) return iteratorMethod.call(iterable); if ("function" == typeof iterable.next) return iterable; if (!isNaN(iterable.length)) { var i = -1, next = function next() { for (; ++i < iterable.length;) { if (hasOwn.call(iterable, i)) return next.value = iterable[i], next.done = !1, next; } return next.value = undefined, next.done = !0, next; }; return next.next = next; } } return { next: doneResult }; } function doneResult() { return { value: undefined, done: !0 }; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, define(Gp, "constructor", GeneratorFunctionPrototype), define(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, toStringTagSymbol, "GeneratorFunction"), exports.isGeneratorFunction = function (genFun) { var ctor = "function" == typeof genFun && genFun.constructor; return !!ctor && (ctor === GeneratorFunction || "GeneratorFunction" === (ctor.displayName || ctor.name)); }, exports.mark = function (genFun) { return Object.setPrototypeOf ? Object.setPrototypeOf(genFun, GeneratorFunctionPrototype) : (genFun.__proto__ = GeneratorFunctionPrototype, define(genFun, toStringTagSymbol, "GeneratorFunction")), genFun.prototype = Object.create(Gp), genFun; }, exports.awrap = function (arg) { return { __await: arg }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, asyncIteratorSymbol, function () { return this; }), exports.AsyncIterator = AsyncIterator, exports.async = function (innerFn, outerFn, self, tryLocsList, PromiseImpl) { void 0 === PromiseImpl && (PromiseImpl = Promise); var iter = new AsyncIterator(wrap(innerFn, outerFn, self, tryLocsList), PromiseImpl); return exports.isGeneratorFunction(outerFn) ? iter : iter.next().then(function (result) { return result.done ? result.value : iter.next(); }); }, defineIteratorMethods(Gp), define(Gp, toStringTagSymbol, "Generator"), define(Gp, iteratorSymbol, function () { return this; }), define(Gp, "toString", function () { return "[object Generator]"; }), exports.keys = function (object) { var keys = []; for (var key in object) { keys.push(key); } return keys.reverse(), function next() { for (; keys.length;) { var key = keys.pop(); if (key in object) return next.value = key, next.done = !1, next; } return next.done = !0, next; }; }, exports.values = values, Context.prototype = { constructor: Context, reset: function reset(skipTempReset) { if (this.prev = 0, this.next = 0, this.sent = this._sent = undefined, this.done = !1, this.delegate = null, this.method = "next", this.arg = undefined, this.tryEntries.forEach(resetTryEntry), !skipTempReset) for (var name in this) { "t" === name.charAt(0) && hasOwn.call(this, name) && !isNaN(+name.slice(1)) && (this[name] = undefined); } }, stop: function stop() { this.done = !0; var rootRecord = this.tryEntries[0].completion; if ("throw" === rootRecord.type) throw rootRecord.arg; return this.rval; }, dispatchException: function dispatchException(exception) { if (this.done) throw exception; var context = this; function handle(loc, caught) { return record.type = "throw", record.arg = exception, context.next = loc, caught && (context.method = "next", context.arg = undefined), !!caught; } for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i], record = entry.completion; if ("root" === entry.tryLoc) return handle("end"); if (entry.tryLoc <= this.prev) { var hasCatch = hasOwn.call(entry, "catchLoc"), hasFinally = hasOwn.call(entry, "finallyLoc"); if (hasCatch && hasFinally) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } else if (hasCatch) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); } else { if (!hasFinally) throw new Error("try statement without catch or finally"); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } } } }, abrupt: function abrupt(type, arg) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc <= this.prev && hasOwn.call(entry, "finallyLoc") && this.prev < entry.finallyLoc) { var finallyEntry = entry; break; } } finallyEntry && ("break" === type || "continue" === type) && finallyEntry.tryLoc <= arg && arg <= finallyEntry.finallyLoc && (finallyEntry = null); var record = finallyEntry ? finallyEntry.completion : {}; return record.type = type, record.arg = arg, finallyEntry ? (this.method = "next", this.next = finallyEntry.finallyLoc, ContinueSentinel) : this.complete(record); }, complete: function complete(record, afterLoc) { if ("throw" === record.type) throw record.arg; return "break" === record.type || "continue" === record.type ? this.next = record.arg : "return" === record.type ? (this.rval = this.arg = record.arg, this.method = "return", this.next = "end") : "normal" === record.type && afterLoc && (this.next = afterLoc), ContinueSentinel; }, finish: function finish(finallyLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.finallyLoc === finallyLoc) return this.complete(entry.completion, entry.afterLoc), resetTryEntry(entry), ContinueSentinel; } }, "catch": function _catch(tryLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc === tryLoc) { var record = entry.completion; if ("throw" === record.type) { var thrown = record.arg; resetTryEntry(entry); } return thrown; } } throw new Error("illegal catch attempt"); }, delegateYield: function delegateYield(iterable, resultName, nextLoc) { return this.delegate = { iterator: values(iterable), resultName: resultName, nextLoc: nextLoc }, "next" === this.method && (this.arg = undefined), ContinueSentinel; } }, exports; }
-
-function dictionary_classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function dictionary_defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function dictionary_createClass(Constructor, protoProps, staticProps) { if (protoProps) dictionary_defineProperties(Constructor.prototype, protoProps); if (staticProps) dictionary_defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-
-function dictionary_asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function dictionary_asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { dictionary_asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { dictionary_asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
-
-$(document).ready(function () {
-  var wordCreated;
-  var newWord; //generate word
-
-  generateWord().then(function (value) {
-    wordCreated = value;
-    newWord = new WordToGuess(value);
-    console.log("another test: " + value);
-    console.log("wordCreated: " + wordCreated);
-    console.log("wordCreated new word var: " + newWord.getWordToGuess());
-    test(wordCreated);
-    $(validateWord).click(function (event) {
-      event.preventDefault();
-      console.log("validate word");
-      submitWord();
-    });
-    return wordCreated, newWord;
-  }, function (error) {
-    console.log(error);
-  });
-
-  function test(val) {
-    newWord = val;
-    console.log("val etst: " + newWord);
-    return newWord;
-  }
-
-  console.log("val 1" + newWord);
-  console.log("hnet" + newWord);
-  var rgBGreen = "rgb(12, 206, 107)";
-  var rgbYellow = "rgb(220, 237, 49)";
-  var rgbGrey = "rgb(142, 141, 145)";
-  var MAX_GUESSES = 6;
-  var guessNumber = 0;
-  var wordsubmitted = "";
-  var count = 0;
-  var wordArray = [];
-  var lettersCount = 0;
-  var elems = document.querySelectorAll(".letter");
-  var deleteLetter = document.getElementById("delete");
-  var validateWord = document.getElementById("submit");
-  var countDisplay = document.getElementById("count");
-  $(document).keydown(function (event) {
-    if (wordArray.length < 5 && count < MAX_GUESSES) {
-      if (event.keyCode >= 65 && event.keyCode <= 90) {
-        var typedLetter = String.fromCharCode(event.keyCode);
-        var normalizedLetter = typedLetter.toLowerCase();
-        console.log(normalizedLetter);
-        wordArray.push(normalizedLetter);
-        addelement(normalizedLetter);
-        console.log(wordArray);
-        console.log(count);
-      }
-    } else if (wordArray.length === 5) {
-      alert("enough letters validate input!");
-    }
-  }); //Function addelement(l) : 
-  //- displays the letter picked
-
-  function addelement(l) {
-    var lettersCount = wordArray.length; // lettersCount = lettersCount + 1;
-
-    console.log("letters count" + lettersCount);
-    var completeWord = document.getElementById("try".concat(guessNumber + 1, "-").concat(lettersCount));
-    completeWord.innerHTML += l;
-  } // Function pickLetters():
-  // - select letters
-  // - create array with the selected letters 
-  // - this array is used to be create a word that will be then checked 
-
-
-  function pickLetters() {
-    var clickedBtnID = $(this).attr('value'); // letter count check
-
-    if (wordArray.length < 5 && count < MAX_GUESSES) {
-      wordArray.push(clickedBtnID);
-      console.log(wordArray);
-      console.log(count);
-      addelement(clickedBtnID);
-    } else if (wordArray.length === 5) {
-      alert("enough letters validate input!");
-    }
-  }
-
-  function removeLetter() {
-    var lettersCount2 = wordArray.length;
-    var currentWord = document.getElementById("try".concat(guessNumber + 1, "-").concat(lettersCount));
-    console.log(lettersCount);
-    wordArray.pop();
-    $("#try".concat(guessNumber + 1, "-").concat(lettersCount2)).text("");
-    console.log(wordArray);
-  }
-
-  function existingLetter(exist) {
-    if (exist === true) {
-      $(".li").css('color', '#3399ff');
-    }
-  }
-
-  var wordTested;
-  var isValidWord;
-  var wordGuess;
-
-  function submitWord() {
-    return _submitWord.apply(this, arguments);
-  }
-
-  function _submitWord() {
-    _submitWord = dictionary_asyncToGenerator( /*#__PURE__*/dictionary_regeneratorRuntime().mark(function _callee() {
-      return dictionary_regeneratorRuntime().wrap(function _callee$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-              if (!(count < MAX_GUESSES && wordArray.length === 5)) {
-                _context.next = 9;
-                break;
-              }
-
-              wordGuess = wordArray.join("");
-              wordsubmitted = wordGuess;
-              _context.next = 5;
-              return fetch("/.netlify/functions/dictionary-check?wordGuess=".concat(wordGuess)).then(function (res) {
-                return res.json();
-              }).then(function (data) {
-                console.log("submit word data" + data); // generatedWord = data;
-                // wordObject = new WordToGuess(generatedWord);
-                // generatedWordExport = JSON.stringify(wordObject);
-                // let parsedWord = JSON.parse(generatedWordExport);
-                // formattedWord = parsedWord.word;
-                //  console.log("testing" + formattedWord);
-                //  console.log(wordObject);
-                //  console.log('Success:', generatedWord);
-              });
-
-            case 5:
-              // console.log("Word submitted: " + wordsubmitted);
-              // const dictionarySettings = {
-              //     "async": false,
-              //     "crossDomain": true,
-              //     "url": `https://dictionary-by-api-ninjas.p.rapidapi.com/v1/dictionary?word=${wordGuess}`,
-              //     "method": "GET",
-              //     "headers": {
-              //         "x-rapidapi-host": "dictionary-by-api-ninjas.p.rapidapi.com",
-              //         "x-rapidapi-key": "56bc15abd1msh8abeae14cab8d8ep1a87a3jsn2982dc6544e6"
-              //     }
-              // };
-              // $.ajax(dictionarySettings).done(function (response) {
-              //     const result = response;
-              //     console.log(result);
-              //     isValidWord = result.valid;
-              // });
-              //  isValidWord = true; // remove this when removing commented
-              console.log(isValidWord);
-
-              if (isValidWord == false) {
-                alert("word not valid");
-                guessNumber = guessNumber;
-                count = count;
-                wordArray = wordArray;
-              } else {
-                guessNumber = guessNumber + 1;
-                count = count + 1;
-
-                if (count === MAX_GUESSES) {
-                  alert("enough guesses");
-                  $(elems).attr("disabled", "disable");
-                }
-
-                console.log(count);
-                wordTested = new WordToTest(wordsubmitted, count);
-                lettersCheck(wordTested.getWordToTest());
-                wordArray = [];
-              }
-
-              _context.next = 10;
-              break;
-
-            case 9:
-              if (wordArray.length != 5) {
-                alert("You're missing letters ".concat(5 - wordArray.length, " letters"));
-              }
-
-            case 10:
-              // displayCount();
-              lettersCount = 0;
-
-            case 11:
-            case "end":
-              return _context.stop();
-          }
-        }
-      }, _callee);
-    }));
-    return _submitWord.apply(this, arguments);
-  }
-
-  function displayCount() {
-    // countDisplay.innerHTML += wordTested.getWordToGuessCount();
-    countDisplay.innerHTML += wordTested.getWordToGuessCount();
-  }
-
-  var isValidLetter;
-  var letterExist; //check letter by letter
-
-  function lettersCheck(wordGuess) {
-    console.log("newWord lettersCheck : " + newWord); //  The 2 words are stored in 2 arrays:
-    // - one for the word to guess
-    // - a second for the users guess)
-    //  Step 1: Check valid letters
-    //  Step 1: Check existing letters 
-
-    var validLettersCount = 0;
-    var wordToGuess2 = newWord;
-    var wtg = wordToGuess2.split("");
-    var userGuess = wordTested.getWordToTest();
-    var userGuessArray = userGuess.split(""); //  Step 1: Check valid letters 
-    //  The for... loop compares the 2 arrays
-    //  When letters are the same, we remove the letter from both arrays
-    //  So they are not included again when checking if they exist in the word the user has to guess   
-
-    for (var _i = 0; _i < userGuessArray.length; _i++) {
-      var letterWordToGuess = wtg[_i];
-
-      var _test = _i + 1;
-
-      var lWtT = userGuessArray[_i];
-      var letterWordToTest = lWtT;
-      var listElement = document.getElementById("try".concat(guessNumber, "-").concat(_test)); //console.log("test try" + guessNumber + "- " + test);
-
-      if (letterWordToGuess === letterWordToTest.toLowerCase()) {
-        console.log("letter word to guess: " + letterWordToGuess + " /letter word to test: " + letterWordToTest + " so letter is valid");
-        isValidLetter = true;
-        wtg.splice(_i, 1, null);
-        userGuessArray.splice(_i, 1, null);
-
-        if (isValidLetter === true) {
-          validLettersCount = validLettersCount + 1;
-          wordTested.validCount = validLettersCount;
-          $(listElement).css('background-color', rgBGreen); //  $(`#${letterWordToTest}`).css('background-color', '#2FC620');
-        }
-
-        console.log("word to guess after validated : " + wtg);
-        console.log("word to test after validated : " + userGuessArray);
-      }
-    } //  Step 2: Check existing letters 
-    //  The for... loop compares the 2 arrays
-    //  If the letter exist it will appear in yellow
-    //  Otherwise, that means the letter is false and will appear in grey
-
-
-    for (var _i2 = 0; _i2 < userGuessArray.length; _i2++) {
-      var letterWordToGuess2 = wtg[_i2];
-      var test2 = _i2 + 1;
-      var lWtT2 = userGuessArray[_i2];
-      var letterWordToTest2 = lWtT2;
-      var listElement2 = document.getElementById("try".concat(guessNumber, "-").concat(test2));
-      console.log("test try" + guessNumber + "- " + test2); //if ((letterWordToGuess2 != null) && (letterWordToTest2 != null)) {
-
-      console.log("exist test letter word to guess: " + letterWordToGuess2 + " /letter word to test: " + letterWordToTest2 + " so letter is valid");
-
-      if (letterWordToGuess2 !== letterWordToTest2) {
-        if (wtg.includes(letterWordToTest2) === true) {
-          letterExist = true; //  wtg.splice(i, 1, null);
-          // userGuessArray.splice(i, 1, null);
-
-          wtg.splice(wtg.indexOf(letterWordToTest2), 1, null);
-          console.log(letterWordToTest2 + " is included ");
-          $(listElement2).css('background-color', rgbYellow); //  $(`#${letterWordToTest2}`).css('background-color', '#FFC300');
-
-          if (letterExist === true) {
-            existingLetter(letterExist);
-          }
-        } else {
-          console.log(letterWordToTest2 + "not valid");
-          $(listElement2).css('background-color', rgbGrey); //  $(`#${letterWordToTest2}`).css('background-color', '#A3A6AD');
-        }
-      } else {// console.log(letterWordToTest2 + "error");
-      }
-
-      console.log("word to guess after : " + wtg);
-      console.log("word to test after: " + userGuessArray); //  }
-    }
-
-    console.log(wordTested);
-    lettersKeyboard(); // If all the letters are valid generate alert and disable keyboard
-
-    if (wordTested.isWordValid() === true) {
-      alert("found");
-      $(elems).attr("disabled", "disable");
-    }
-  }
-
-  function lettersKeyboard() {
-    var validLettersCount = 0;
-    var wordToGuess2 = newWord;
-    var wtg3 = wordToGuess2.split("");
-    var userGuess = wordTested.getWordToTest();
-    var userGuessArray3 = userGuess.split("");
-    var test2 = i + 1;
-
-    for (var _i3 = 0; _i3 < userGuessArray3.length; _i3++) {
-      var letterToFind = wtg3[_i3];
-      var letterTested = userGuessArray3[_i3];
-      var letterWordToTest2 = letterTested;
-      console.log("letter to find " + letterToFind + "letter tested " + letterTested);
-
-      if (letterToFind === letterTested) {
-        $("#".concat(letterTested)).css('background-color', rgBGreen);
-      } else if (letterToFind !== letterTested) {
-        if (wtg3.includes(letterTested) === true) {
-          if ($("#".concat(letterTested)).css("background-color") !== rgBGreen) {
-            $("#".concat(letterTested)).css('background-color', rgbYellow);
-          }
-
-          console.log("existing keybord: " + letterToFind);
-        } else {
-          $("#".concat(letterTested)).css('background-color', rgbGrey);
-          console.log("invalid letter keybord: " + letterToFind);
-        }
-      }
-    }
-  }
-
-  $(deleteLetter).on("click", removeLetter);
-  $(elems).on("click", pickLetters); // $(validateWord).click(function (event) {
-  //     event.preventDefault();
-  //     submitWord();
-  // });
-
-  var WordToTest = /*#__PURE__*/function () {
-    function WordToTest(wordTest, counted, countValidLetters) {
-      dictionary_classCallCheck(this, WordToTest);
-
-      this.wordTest = wordTest;
-      this.counted = counted;
-      this.countValidLetters = countValidLetters;
-    }
-
-    dictionary_createClass(WordToTest, [{
-      key: "validCount",
-      set: function set(numberOfValidLetters) {
-        this.countValidLetters = numberOfValidLetters;
-      }
-    }, {
-      key: "getWordToTest",
-      value: function getWordToTest() {
-        return this.wordTest;
-      }
-    }, {
-      key: "getWordToGuessCount",
-      value: function getWordToGuessCount() {
-        return this.counted;
-      }
-    }, {
-      key: "getValidCount",
-      value: function getValidCount() {
-        return this.counted;
-      }
-    }, {
-      key: "isWordValid",
-      value: function isWordValid() {
-        if (this.countValidLetters === 5) {
-          // alert("fail");
-          return true;
-        } else {
-          return false;
-        }
-      }
-    }]);
-
-    return WordToTest;
-  }();
-});
-;// CONCATENATED MODULE: ./src/index.js
-
-
-
- //dictionaryCheck();
-//isWordGuessed();
-// $(document).ready(function () { 
-//   
-// });
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./src/index.js":
+/*!**********************!*\
+  !*** ./src/index.js ***!
+  \**********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _scss_styles_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./scss/styles.scss */ \"./src/scss/styles.scss\");\n/* harmony import */ var _jsmodules_wordGenerator_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./jsmodules/wordGenerator.js */ \"./src/jsmodules/wordGenerator.js\");\n/* harmony import */ var _jsmodules_dictionary__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./jsmodules/dictionary */ \"./src/jsmodules/dictionary.js\");\n/* harmony import */ var _jsmodules_wordCheck__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./jsmodules/wordCheck */ \"./src/jsmodules/wordCheck.js\");\n\n\n\n //dictionaryCheck();\n//isWordGuessed();\n// $(document).ready(function () { \n//   \n// });\n\n//# sourceURL=webpack://myfauxdle/./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/jsmodules/dictionary.js":
+/*!*************************************!*\
+  !*** ./src/jsmodules/dictionary.js ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _wordGenerator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./wordGenerator.js */ \"./src/jsmodules/wordGenerator.js\");\nfunction _typeof(obj) { \"@babel/helpers - typeof\"; return _typeof = \"function\" == typeof Symbol && \"symbol\" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && \"function\" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? \"symbol\" : typeof obj; }, _typeof(obj); }\n\nfunction _regeneratorRuntime() { \"use strict\"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return exports; }; var exports = {}, Op = Object.prototype, hasOwn = Op.hasOwnProperty, $Symbol = \"function\" == typeof Symbol ? Symbol : {}, iteratorSymbol = $Symbol.iterator || \"@@iterator\", asyncIteratorSymbol = $Symbol.asyncIterator || \"@@asyncIterator\", toStringTagSymbol = $Symbol.toStringTag || \"@@toStringTag\"; function define(obj, key, value) { return Object.defineProperty(obj, key, { value: value, enumerable: !0, configurable: !0, writable: !0 }), obj[key]; } try { define({}, \"\"); } catch (err) { define = function define(obj, key, value) { return obj[key] = value; }; } function wrap(innerFn, outerFn, self, tryLocsList) { var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator, generator = Object.create(protoGenerator.prototype), context = new Context(tryLocsList || []); return generator._invoke = function (innerFn, self, context) { var state = \"suspendedStart\"; return function (method, arg) { if (\"executing\" === state) throw new Error(\"Generator is already running\"); if (\"completed\" === state) { if (\"throw\" === method) throw arg; return doneResult(); } for (context.method = method, context.arg = arg;;) { var delegate = context.delegate; if (delegate) { var delegateResult = maybeInvokeDelegate(delegate, context); if (delegateResult) { if (delegateResult === ContinueSentinel) continue; return delegateResult; } } if (\"next\" === context.method) context.sent = context._sent = context.arg;else if (\"throw\" === context.method) { if (\"suspendedStart\" === state) throw state = \"completed\", context.arg; context.dispatchException(context.arg); } else \"return\" === context.method && context.abrupt(\"return\", context.arg); state = \"executing\"; var record = tryCatch(innerFn, self, context); if (\"normal\" === record.type) { if (state = context.done ? \"completed\" : \"suspendedYield\", record.arg === ContinueSentinel) continue; return { value: record.arg, done: context.done }; } \"throw\" === record.type && (state = \"completed\", context.method = \"throw\", context.arg = record.arg); } }; }(innerFn, self, context), generator; } function tryCatch(fn, obj, arg) { try { return { type: \"normal\", arg: fn.call(obj, arg) }; } catch (err) { return { type: \"throw\", arg: err }; } } exports.wrap = wrap; var ContinueSentinel = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var IteratorPrototype = {}; define(IteratorPrototype, iteratorSymbol, function () { return this; }); var getProto = Object.getPrototypeOf, NativeIteratorPrototype = getProto && getProto(getProto(values([]))); NativeIteratorPrototype && NativeIteratorPrototype !== Op && hasOwn.call(NativeIteratorPrototype, iteratorSymbol) && (IteratorPrototype = NativeIteratorPrototype); var Gp = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(IteratorPrototype); function defineIteratorMethods(prototype) { [\"next\", \"throw\", \"return\"].forEach(function (method) { define(prototype, method, function (arg) { return this._invoke(method, arg); }); }); } function AsyncIterator(generator, PromiseImpl) { function invoke(method, arg, resolve, reject) { var record = tryCatch(generator[method], generator, arg); if (\"throw\" !== record.type) { var result = record.arg, value = result.value; return value && \"object\" == _typeof(value) && hasOwn.call(value, \"__await\") ? PromiseImpl.resolve(value.__await).then(function (value) { invoke(\"next\", value, resolve, reject); }, function (err) { invoke(\"throw\", err, resolve, reject); }) : PromiseImpl.resolve(value).then(function (unwrapped) { result.value = unwrapped, resolve(result); }, function (error) { return invoke(\"throw\", error, resolve, reject); }); } reject(record.arg); } var previousPromise; this._invoke = function (method, arg) { function callInvokeWithMethodAndArg() { return new PromiseImpl(function (resolve, reject) { invoke(method, arg, resolve, reject); }); } return previousPromise = previousPromise ? previousPromise.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); }; } function maybeInvokeDelegate(delegate, context) { var method = delegate.iterator[context.method]; if (undefined === method) { if (context.delegate = null, \"throw\" === context.method) { if (delegate.iterator[\"return\"] && (context.method = \"return\", context.arg = undefined, maybeInvokeDelegate(delegate, context), \"throw\" === context.method)) return ContinueSentinel; context.method = \"throw\", context.arg = new TypeError(\"The iterator does not provide a 'throw' method\"); } return ContinueSentinel; } var record = tryCatch(method, delegate.iterator, context.arg); if (\"throw\" === record.type) return context.method = \"throw\", context.arg = record.arg, context.delegate = null, ContinueSentinel; var info = record.arg; return info ? info.done ? (context[delegate.resultName] = info.value, context.next = delegate.nextLoc, \"return\" !== context.method && (context.method = \"next\", context.arg = undefined), context.delegate = null, ContinueSentinel) : info : (context.method = \"throw\", context.arg = new TypeError(\"iterator result is not an object\"), context.delegate = null, ContinueSentinel); } function pushTryEntry(locs) { var entry = { tryLoc: locs[0] }; 1 in locs && (entry.catchLoc = locs[1]), 2 in locs && (entry.finallyLoc = locs[2], entry.afterLoc = locs[3]), this.tryEntries.push(entry); } function resetTryEntry(entry) { var record = entry.completion || {}; record.type = \"normal\", delete record.arg, entry.completion = record; } function Context(tryLocsList) { this.tryEntries = [{ tryLoc: \"root\" }], tryLocsList.forEach(pushTryEntry, this), this.reset(!0); } function values(iterable) { if (iterable) { var iteratorMethod = iterable[iteratorSymbol]; if (iteratorMethod) return iteratorMethod.call(iterable); if (\"function\" == typeof iterable.next) return iterable; if (!isNaN(iterable.length)) { var i = -1, next = function next() { for (; ++i < iterable.length;) { if (hasOwn.call(iterable, i)) return next.value = iterable[i], next.done = !1, next; } return next.value = undefined, next.done = !0, next; }; return next.next = next; } } return { next: doneResult }; } function doneResult() { return { value: undefined, done: !0 }; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, define(Gp, \"constructor\", GeneratorFunctionPrototype), define(GeneratorFunctionPrototype, \"constructor\", GeneratorFunction), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, toStringTagSymbol, \"GeneratorFunction\"), exports.isGeneratorFunction = function (genFun) { var ctor = \"function\" == typeof genFun && genFun.constructor; return !!ctor && (ctor === GeneratorFunction || \"GeneratorFunction\" === (ctor.displayName || ctor.name)); }, exports.mark = function (genFun) { return Object.setPrototypeOf ? Object.setPrototypeOf(genFun, GeneratorFunctionPrototype) : (genFun.__proto__ = GeneratorFunctionPrototype, define(genFun, toStringTagSymbol, \"GeneratorFunction\")), genFun.prototype = Object.create(Gp), genFun; }, exports.awrap = function (arg) { return { __await: arg }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, asyncIteratorSymbol, function () { return this; }), exports.AsyncIterator = AsyncIterator, exports.async = function (innerFn, outerFn, self, tryLocsList, PromiseImpl) { void 0 === PromiseImpl && (PromiseImpl = Promise); var iter = new AsyncIterator(wrap(innerFn, outerFn, self, tryLocsList), PromiseImpl); return exports.isGeneratorFunction(outerFn) ? iter : iter.next().then(function (result) { return result.done ? result.value : iter.next(); }); }, defineIteratorMethods(Gp), define(Gp, toStringTagSymbol, \"Generator\"), define(Gp, iteratorSymbol, function () { return this; }), define(Gp, \"toString\", function () { return \"[object Generator]\"; }), exports.keys = function (object) { var keys = []; for (var key in object) { keys.push(key); } return keys.reverse(), function next() { for (; keys.length;) { var key = keys.pop(); if (key in object) return next.value = key, next.done = !1, next; } return next.done = !0, next; }; }, exports.values = values, Context.prototype = { constructor: Context, reset: function reset(skipTempReset) { if (this.prev = 0, this.next = 0, this.sent = this._sent = undefined, this.done = !1, this.delegate = null, this.method = \"next\", this.arg = undefined, this.tryEntries.forEach(resetTryEntry), !skipTempReset) for (var name in this) { \"t\" === name.charAt(0) && hasOwn.call(this, name) && !isNaN(+name.slice(1)) && (this[name] = undefined); } }, stop: function stop() { this.done = !0; var rootRecord = this.tryEntries[0].completion; if (\"throw\" === rootRecord.type) throw rootRecord.arg; return this.rval; }, dispatchException: function dispatchException(exception) { if (this.done) throw exception; var context = this; function handle(loc, caught) { return record.type = \"throw\", record.arg = exception, context.next = loc, caught && (context.method = \"next\", context.arg = undefined), !!caught; } for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i], record = entry.completion; if (\"root\" === entry.tryLoc) return handle(\"end\"); if (entry.tryLoc <= this.prev) { var hasCatch = hasOwn.call(entry, \"catchLoc\"), hasFinally = hasOwn.call(entry, \"finallyLoc\"); if (hasCatch && hasFinally) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } else if (hasCatch) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); } else { if (!hasFinally) throw new Error(\"try statement without catch or finally\"); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } } } }, abrupt: function abrupt(type, arg) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc <= this.prev && hasOwn.call(entry, \"finallyLoc\") && this.prev < entry.finallyLoc) { var finallyEntry = entry; break; } } finallyEntry && (\"break\" === type || \"continue\" === type) && finallyEntry.tryLoc <= arg && arg <= finallyEntry.finallyLoc && (finallyEntry = null); var record = finallyEntry ? finallyEntry.completion : {}; return record.type = type, record.arg = arg, finallyEntry ? (this.method = \"next\", this.next = finallyEntry.finallyLoc, ContinueSentinel) : this.complete(record); }, complete: function complete(record, afterLoc) { if (\"throw\" === record.type) throw record.arg; return \"break\" === record.type || \"continue\" === record.type ? this.next = record.arg : \"return\" === record.type ? (this.rval = this.arg = record.arg, this.method = \"return\", this.next = \"end\") : \"normal\" === record.type && afterLoc && (this.next = afterLoc), ContinueSentinel; }, finish: function finish(finallyLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.finallyLoc === finallyLoc) return this.complete(entry.completion, entry.afterLoc), resetTryEntry(entry), ContinueSentinel; } }, \"catch\": function _catch(tryLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc === tryLoc) { var record = entry.completion; if (\"throw\" === record.type) { var thrown = record.arg; resetTryEntry(entry); } return thrown; } } throw new Error(\"illegal catch attempt\"); }, delegateYield: function delegateYield(iterable, resultName, nextLoc) { return this.delegate = { iterator: values(iterable), resultName: resultName, nextLoc: nextLoc }, \"next\" === this.method && (this.arg = undefined), ContinueSentinel; } }, exports; }\n\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }\n\nfunction _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, \"prototype\", { writable: false }); return Constructor; }\n\nfunction asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }\n\nfunction _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, \"next\", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, \"throw\", err); } _next(undefined); }); }; }\n\n\n\nvar randomWords = __webpack_require__(/*! random-words */ \"./node_modules/random-words/index.js\");\n\nvar validateWord = document.getElementById(\"submit\");\nvar parsedWordToGuess;\nvar wordToGuessObject;\nvar formattedWordToGuess;\n$(document).ready(function () {\n  var wordCreated;\n  var newWord;\n  var isGeneratedWordValid;\n\n  function wordValidation(_x) {\n    return _wordValidation.apply(this, arguments);\n  }\n\n  function _wordValidation() {\n    _wordValidation = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(wordInput) {\n      return _regeneratorRuntime().wrap(function _callee$(_context) {\n        while (1) {\n          switch (_context.prev = _context.next) {\n            case 0:\n              _context.next = 2;\n              return fetch(\"/.netlify/functions/dictionary-check?wordGuess=\".concat(wordInput)).then(function (res) {\n                return res.json();\n              }).then(function (data) {\n                isGeneratedWordValid = data.valid; // console.log(\"gennerated word valid?\" + isGeneratedWordValid)\n              });\n\n            case 2:\n              return _context.abrupt(\"return\", isGeneratedWordValid);\n\n            case 3:\n            case \"end\":\n              return _context.stop();\n          }\n        }\n      }, _callee);\n    }));\n    return _wordValidation.apply(this, arguments);\n  }\n\n  generateWord().then($(validateWord).click(function (event) {\n    event.preventDefault();\n    submitWord();\n  })); // Generates the word the user need to find,\n  // - using npm  random-words package to generate the words \n  // - check if word match has 5 letters, \n  //      if not the word must be generated again until a 5 letter word is generated\n\n  function generateWord() {\n    return _generateWord.apply(this, arguments);\n  }\n\n  function _generateWord() {\n    _generateWord = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {\n      return _regeneratorRuntime().wrap(function _callee2$(_context2) {\n        while (1) {\n          switch (_context2.prev = _context2.next) {\n            case 0:\n              return _context2.abrupt(\"return\", new Promise(function (resolve, reject) {\n                var testWord = randomWords();\n                var letterCount = testWord.length;\n\n                if (letterCount == 5) {\n                  wordValidation(testWord).then(function (validWord) {\n                    if (validWord = true) {\n                      var generatedWord = testWord; // console.log(\"generatedWord variable Ready => \" + generatedWord);\n\n                      wordToGuessObject = new _wordGenerator_js__WEBPACK_IMPORTED_MODULE_0__.WordToGuess(generatedWord);\n                      var generatedWordExport = JSON.stringify(wordToGuessObject); //  console.log(\"generatedWordExport: \" + generatedWordExport);\n\n                      parsedWordToGuess = JSON.parse(generatedWordExport); // console.log(\"parsedWord: \" + parsedWordToGuess.word);\n\n                      formattedWordToGuess = parsedWordToGuess.word; // console.log(\" function generateWord => formattedWordToGuess: \" + formattedWordToGuess);\n\n                      resolve(formattedWordToGuess); //console.log(\">>>>>> word generated is valid\" + validWord)\n                    } else if (validWord = false) {\n                      generateWord();\n                      console.log(\"word generated is not in dictionary trying \" + validWord);\n                    }\n                  });\n                } else {\n                  // console.log(testWord + \" doent have the right letter count trying again...\");\n                  generateWord();\n                }\n\n                wordToGuessObject;\n              }));\n\n            case 1:\n            case \"end\":\n              return _context2.stop();\n          }\n        }\n      }, _callee2);\n    }));\n    return _generateWord.apply(this, arguments);\n  }\n\n  var rgBGreen = \"rgb(12, 206, 107)\";\n  var rgbYellow = \"rgb(220, 237, 49)\";\n  var rgbGrey = \"rgb(142, 141, 145)\";\n  var MAX_GUESSES = 6;\n  var guessNumber = 0;\n  var wordsubmitted = \"\";\n  var count = 0;\n  var wordArray = [];\n  var lettersCount = 0;\n  var elems = document.querySelectorAll(\".letter\");\n  var deleteLetter = document.getElementById(\"delete\");\n  var countDisplay = document.getElementById(\"count\");\n  $(document).keydown(function (event) {\n    if (wordArray.length !== 0 && event.key === \"Backspace\") {\n      // alert(\"del key pressed\" + wordArray.length + \"/\" + event.key);\n      removeLetter();\n    } else if (wordArray.length < 5 && count < MAX_GUESSES) {\n      if (event.keyCode >= 65 && event.keyCode <= 90) {\n        var typedLetter = String.fromCharCode(event.keyCode);\n        var normalizedLetter = typedLetter.toLowerCase(); // console.log(normalizedLetter);\n\n        wordArray.push(normalizedLetter);\n        addelement(normalizedLetter); // console.log(wordArray);\n        //  console.log(count);\n      }\n    } else if (wordArray.length === 5) {\n      if (event.key === \"Enter\") {\n        submitWord();\n      } else {\n        alert(\"enough letters validate input!\");\n      }\n    }\n  }); //Function addelement(l) : \n  //- displays the letter picked\n\n  function addelement(l) {\n    var lettersCount = wordArray.length; // console.log(\"letters count\" + lettersCount)\n\n    var completeWord = document.getElementById(\"try\".concat(guessNumber + 1, \"-\").concat(lettersCount));\n    completeWord.innerHTML += l;\n  } // Function pickLetters():\n  // - select letters\n  // - create array with the selected letters \n  // - this array is used to be create a word that will be then checked \n\n\n  function pickLetters() {\n    var clickedBtnID = $(this).attr('value'); // letter count check\n    // console.log(\"clickedBtnID:\" + clickedBtnID);\n\n    if (wordArray.length < 5 && count < MAX_GUESSES) {\n      wordArray.push(clickedBtnID); // console.log(wordArray);\n      // console.log(count);\n\n      addelement(clickedBtnID);\n    } else if (wordArray.length > 5) {\n      alert(\" Enough letters validate input! \");\n    }\n  } //Gives the user the ability to \n  // Remove/change a letter \n\n\n  function removeLetter() {\n    var lettersCount2 = wordArray.length;\n    var currentWord = document.getElementById(\"try\".concat(guessNumber + 1, \"-\").concat(lettersCount)); // console.log(lettersCount);\n\n    if (lettersCount2 > 0) {\n      wordArray.pop();\n      $(\"#try\".concat(guessNumber + 1, \"-\").concat(lettersCount2)).text(\"\"); //console.log(wordArray);\n    }\n  } //  Check if the letter is present\n  //  in the word to find\n\n\n  function existingLetter(exist) {\n    if (exist === true) {\n      $(\".li\").css('color', '#3399ff');\n    }\n  }\n\n  var isValidLetter;\n  var letterExist;\n  var wordTested;\n  var isValidWord;\n  var wordGuess;\n\n  function submitWord() {\n    return _submitWord.apply(this, arguments);\n  }\n\n  function _submitWord() {\n    _submitWord = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {\n      return _regeneratorRuntime().wrap(function _callee3$(_context3) {\n        while (1) {\n          switch (_context3.prev = _context3.next) {\n            case 0:\n              if (!(count < MAX_GUESSES && wordArray.length === 5)) {\n                _context3.next = 7;\n                break;\n              }\n\n              wordGuess = wordArray.join(\"\");\n              wordsubmitted = wordGuess;\n              _context3.next = 5;\n              return fetch(\"/.netlify/functions/dictionary-check?wordGuess=\".concat(wordGuess)).then(function (res) {\n                return res.json();\n              }).then(function (data) {\n                isValidWord = data.valid;\n\n                if (isValidWord == false) {\n                  alert(\"word not valid\");\n                  guessNumber = guessNumber;\n                  count = count;\n                  wordArray = wordArray;\n                } else {\n                  guessNumber = guessNumber + 1;\n                  count = count + 1;\n\n                  if (count === MAX_GUESSES) {\n                    alert(\"enough guesses\");\n                    $(elems).attr(\"disabled\", \"disable\");\n                  } //  console.log(count);\n\n\n                  wordTested = new WordToTest(wordsubmitted, count);\n                  lettersCheck(wordTested.getWordToTest());\n                  wordArray = [];\n                } //  console.log(\"submit word data\" + data.word)\n                //  console.log(\"submit generatedWord data\" + data.word)\n\n\n                var wordToFind = wordToGuessObject.getWordToGuess(); //  console.log(\"submit wordObject =>>> \" + wordToFind)\n\n                var generatedWordExport = JSON.stringify(wordToFind); //  console.log(\"generatedWordExport >> \" + generatedWordExport);\n\n                var parsedWord = JSON.parse(generatedWordExport);\n                var formattedWord = parsedWord; //  console.log(\"parsedWord : \" + parsedWord + \" - formattedWord : \" + formattedWord);\n              });\n\n            case 5:\n              _context3.next = 8;\n              break;\n\n            case 7:\n              if (wordArray.length != 5) {\n                // Requires a word made of 5 letter \n                // if not dont allow user to submit the word\n                alert(\"You're missing letters \".concat(5 - wordArray.length, \" letters\"));\n              }\n\n            case 8:\n              lettersCount = 0;\n              return _context3.abrupt(\"return\", wordGuess);\n\n            case 10:\n            case \"end\":\n              return _context3.stop();\n          }\n        }\n      }, _callee3);\n    }));\n    return _submitWord.apply(this, arguments);\n  }\n\n  function displayCount() {\n    // countDisplay.innerHTML += wordTested.getWordToGuessCount();\n    countDisplay.innerHTML += wordTested.getWordToGuessCount();\n  } //  Compares the word to find vs the user input\n  //  check letter by letter\n\n\n  function lettersCheck(wordGuess) {\n    newWord = wordGuess; //    console.log(\"to find\" + formattedWordToGuess + \"word to guess newWord from lettersCheck : \" + newWord)\n    //  The 2 words are stored in 2 arrays:\n    // - one for the word to guess\n    // - a second for the users guess)\n    //  Step 1: Check valid letters\n    //  Step 1: Check existing letters \n\n    var validLettersCount = 0;\n    var wordToGuess2 = formattedWordToGuess; //  console.log(\"wordToGuess2 to string lettersCheck : \" + wordToGuess2)\n\n    var wtg = wordToGuess2.split(''); // console.log(\"wtg to string lettersCheck : \" + wtg);\n\n    var userGuess = wordTested.getWordToTest();\n    var userGuessArray = userGuess.split(''); //   console.log(\"userGuess : \" + userGuess + \"/ wordToGuess2  => \" + wordToGuessObject.word);\n    //  Step 1: Check valid letters \n    //  The for... loop compares the 2 arrays\n    //  When letters are the same, we remove the letter from both arrays\n    //  So they are not included again when checking if they exist in the word the user has to guess   \n\n    for (var _i = 0; _i < userGuessArray.length; _i++) {\n      var letterWordToGuess = wtg[_i];\n      var test = _i + 1;\n      var lWtT = userGuessArray[_i];\n      var letterWordToTest = lWtT;\n      var listElement = document.getElementById(\"try\".concat(guessNumber, \"-\").concat(test)); //console.log(\"test try\" + guessNumber + \"- \" + test);   \n\n      if (letterWordToGuess === letterWordToTest.toLowerCase()) {\n        //  console.log(\"letter word to guess: \" + letterWordToGuess + \" /letter word to test: \" + letterWordToTest + \" so letter is valid\");\n        isValidLetter = true;\n        wtg.splice(_i, 1, null); //  console.log(\">>>>>>>>>>>>>>> \" + wtg);\n\n        userGuessArray.splice(_i, 1, null);\n\n        if (isValidLetter === true) {\n          validLettersCount = validLettersCount + 1;\n          wordTested.validCount = validLettersCount;\n          $(listElement).css('background-color', rgBGreen);\n        } // console.log(\"word to guess after validated : \" + wtg);\n        // console.log(\"word to test after validated : \" + userGuessArray);\n        // console.log(\"WTG: \" + wtg);\n\n      }\n    } //  Step 2: Check existing letters \n    //  The for... loop compares the 2 arrays\n    //  If the letter exist it will appear in yellow\n    //  Otherwise, that means the letter is false and will appear in grey\n\n\n    for (var _i2 = 0; _i2 < userGuessArray.length; _i2++) {\n      var letterWordToGuess2 = wtg[_i2];\n      var test2 = _i2 + 1;\n      var lWtT2 = userGuessArray[_i2];\n      var letterWordToTest2 = lWtT2;\n      var listElement2 = document.getElementById(\"try\".concat(guessNumber, \"-\").concat(test2)); //   console.log(\"test try\" + guessNumber + \"- \" + test2);\n      //  console.log(\"exist test letter word to guess: \" + letterWordToGuess2 + \" /letter word to test: \" + letterWordToTest2 + \" so letter is not valid\");\n\n      if (letterWordToGuess2 !== letterWordToTest2) {\n        if (wtg.includes(letterWordToTest2) === true) {\n          letterExist = true;\n          wtg.splice(_i2, 1, null);\n          userGuessArray.splice(_i2, 1, null);\n          wtg.splice(wtg.indexOf(letterWordToTest2), 1, null); // console.log(letterWordToTest2 + \" is included \");\n\n          $(listElement2).css('background-color', rgbYellow);\n\n          if (letterExist === true) {\n            existingLetter(letterExist);\n          }\n        } else {\n          //  console.log(letterWordToTest2 + \"not valid\");\n          $(listElement2).css('background-color', rgbGrey);\n        }\n      } else {} // console.log(\"word to guess after : \" + wtg);\n      // console.log(\"word to test after: \" + userGuessArray);\n\n    } //   console.log(wordTested);\n\n\n    lettersKeyboard(); // If all the letters are valid generate alert and disable keyboard\n\n    if (wordTested.isWordValid() === true) {\n      // alert(\"found\");\n      $(elems).attr(\"disabled\", \"disable\");\n    }\n  }\n\n  function lettersKeyboard() {\n    var validLettersCount = 0;\n    var wordToGuess2 = newWord;\n    var wtg3 = wordToGuess2.split(\"\");\n    var userGuess = wordTested.getWordToTest();\n    var userGuessArray3 = userGuess.split(\"\");\n    var test2 = i + 1;\n\n    for (var _i3 = 0; _i3 < userGuessArray3.length; _i3++) {\n      var letterToFind = wtg3[_i3];\n      var letterTested = userGuessArray3[_i3];\n      var letterWordToTest2 = letterTested; //   console.log(\"letter to find \" + letterToFind + \"letter tested \" + letterTested);\n\n      if (letterToFind === letterTested) {\n        $(\"#\".concat(letterTested)).css('background-color', rgBGreen);\n      } else if (letterToFind !== letterTested) {\n        if (wtg3.includes(letterTested) === true) {\n          if ($(\"#\".concat(letterTested)).css(\"background-color\") !== rgBGreen) {\n            $(\"#\".concat(letterTested)).css('background-color', rgbYellow);\n          }\n\n          console.log(\"existing keybord: \" + letterToFind);\n        } else {\n          $(\"#\".concat(letterTested)).css('background-color', rgbGrey);\n          console.log(\"invalid letter keybord: \" + letterToFind);\n        }\n      }\n    }\n  }\n\n  $(deleteLetter).on(\"click\", removeLetter);\n  $(elems).on(\"click\", pickLetters);\n\n  var WordToTest = /*#__PURE__*/function () {\n    function WordToTest(wordTest, counted, countValidLetters) {\n      _classCallCheck(this, WordToTest);\n\n      this.wordTest = wordTest;\n      this.counted = counted;\n      this.countValidLetters = countValidLetters;\n    }\n\n    _createClass(WordToTest, [{\n      key: \"validCount\",\n      set: function set(numberOfValidLetters) {\n        this.countValidLetters = numberOfValidLetters;\n      }\n    }, {\n      key: \"getWordToTest\",\n      value: function getWordToTest() {\n        return this.wordTest;\n      }\n    }, {\n      key: \"getWordToGuessCount\",\n      value: function getWordToGuessCount() {\n        return this.counted;\n      }\n    }, {\n      key: \"getValidCount\",\n      value: function getValidCount() {\n        return this.counted;\n      }\n    }, {\n      key: \"isWordValid\",\n      value: function isWordValid() {\n        if (this.countValidLetters === 5) {\n          return true;\n        } else {\n          return false;\n        }\n      }\n    }]);\n\n    return WordToTest;\n  }();\n});\n\n//# sourceURL=webpack://myfauxdle/./src/jsmodules/dictionary.js?");
+
+/***/ }),
+
+/***/ "./src/jsmodules/wordCheck.js":
+/*!************************************!*\
+  !*** ./src/jsmodules/wordCheck.js ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"dictionaryCheck\": () => (/* binding */ dictionaryCheck)\n/* harmony export */ });\nfunction dictionaryCheck() {\n  console.log(\"dictionary\");\n  alert(\"dictionary\");\n  fetch(\"/.netlify/functions/word-found\").then(function (res) {\n    return res;\n  }).then(function (data) {\n    return console.log(data);\n  });\n}\n\n//# sourceURL=webpack://myfauxdle/./src/jsmodules/wordCheck.js?");
+
+/***/ }),
+
+/***/ "./src/jsmodules/wordGenerator.js":
+/*!****************************************!*\
+  !*** ./src/jsmodules/wordGenerator.js ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"WordToGuess\": () => (/* binding */ WordToGuess),\n/* harmony export */   \"formattedWord\": () => (/* binding */ formattedWord),\n/* harmony export */   \"generatedWordExport\": () => (/* binding */ generatedWordExport)\n/* harmony export */ });\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }\n\nfunction _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, \"prototype\", { writable: false }); return Constructor; }\n\nvar generatedWord = \"\";\nvar generatedWordExport;\nvar formattedWord;\nvar testWord;\nvar WordToGuess = /*#__PURE__*/function () {\n  function WordToGuess(word) {\n    _classCallCheck(this, WordToGuess);\n\n    this.word = word;\n  }\n\n  _createClass(WordToGuess, [{\n    key: \"getWordToGuess\",\n    value: function getWordToGuess() {\n      return this.word;\n    }\n  }]);\n\n  return WordToGuess;\n}();\nvar wordToRegister; // export function generateWord() {\n//     return new Promise((resolve, reject) => { \n//         testWord = randomWords();\n//         let letterCount = testWord.length;\n//         if (letterCount == 5) {\n//             generatedWord = testWord;\n//             console.log(\"word has enought letter : Ready => \" + generatedWord);\n//             wordToGuessObject = new WordToGuess(generatedWord);\n//             console.log(\"wordObject: \" + wordToGuessObject.getWordToGuess());\n//             generatedWordExport = JSON.stringify(wordToGuessObject);\n//             console.log(\"generatedWordExport: \" + generatedWordExport);\n//             let parsedWord = JSON.parse(generatedWordExport);\n//             console.log(\"parsedWord: \" + parsedWord);\n//             formattedWord = parsedWord.word;\n//             console.log(\" formattedWord: \" + formattedWord);\n//             resolve(formattedWord);\n//         } else {\n//             console.log(testWord + \" doent have the right letter count trying again...\");\n//             generateWord();\n//         }\n//     });\n// }\n\n//# sourceURL=webpack://myfauxdle/./src/jsmodules/wordGenerator.js?");
+
+/***/ }),
+
+/***/ "./src/scss/styles.scss":
+/*!******************************!*\
+  !*** ./src/scss/styles.scss ***!
+  \******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack://myfauxdle/./src/scss/styles.scss?");
+
+/***/ }),
+
+/***/ "./node_modules/random-words/index.js":
+/*!********************************************!*\
+  !*** ./node_modules/random-words/index.js ***!
+  \********************************************/
+/***/ ((module) => {
+
+eval("var wordList = [\n  // Borrowed from xkcd password generator which borrowed it from wherever\n  \"ability\",\"able\",\"aboard\",\"about\",\"above\",\"accept\",\"accident\",\"according\",\n  \"account\",\"accurate\",\"acres\",\"across\",\"act\",\"action\",\"active\",\"activity\",\n  \"actual\",\"actually\",\"add\",\"addition\",\"additional\",\"adjective\",\"adult\",\"adventure\",\n  \"advice\",\"affect\",\"afraid\",\"after\",\"afternoon\",\"again\",\"against\",\"age\",\n  \"ago\",\"agree\",\"ahead\",\"aid\",\"air\",\"airplane\",\"alike\",\"alive\",\n  \"all\",\"allow\",\"almost\",\"alone\",\"along\",\"aloud\",\"alphabet\",\"already\",\n  \"also\",\"although\",\"am\",\"among\",\"amount\",\"ancient\",\"angle\",\"angry\",\n  \"animal\",\"announced\",\"another\",\"answer\",\"ants\",\"any\",\"anybody\",\"anyone\",\n  \"anything\",\"anyway\",\"anywhere\",\"apart\",\"apartment\",\"appearance\",\"apple\",\"applied\",\n  \"appropriate\",\"are\",\"area\",\"arm\",\"army\",\"around\",\"arrange\",\"arrangement\",\n  \"arrive\",\"arrow\",\"art\",\"article\",\"as\",\"aside\",\"ask\",\"asleep\",\n  \"at\",\"ate\",\"atmosphere\",\"atom\",\"atomic\",\"attached\",\"attack\",\"attempt\",\n  \"attention\",\"audience\",\"author\",\"automobile\",\"available\",\"average\",\"avoid\",\"aware\",\n  \"away\",\"baby\",\"back\",\"bad\",\"badly\",\"bag\",\"balance\",\"ball\",\n  \"balloon\",\"band\",\"bank\",\"bar\",\"bare\",\"bark\",\"barn\",\"base\",\n  \"baseball\",\"basic\",\"basis\",\"basket\",\"bat\",\"battle\",\"be\",\"bean\",\n  \"bear\",\"beat\",\"beautiful\",\"beauty\",\"became\",\"because\",\"become\",\"becoming\",\n  \"bee\",\"been\",\"before\",\"began\",\"beginning\",\"begun\",\"behavior\",\"behind\",\n  \"being\",\"believed\",\"bell\",\"belong\",\"below\",\"belt\",\"bend\",\"beneath\",\n  \"bent\",\"beside\",\"best\",\"bet\",\"better\",\"between\",\"beyond\",\"bicycle\",\n  \"bigger\",\"biggest\",\"bill\",\"birds\",\"birth\",\"birthday\",\"bit\",\"bite\",\n  \"black\",\"blank\",\"blanket\",\"blew\",\"blind\",\"block\",\"blood\",\"blow\",\n  \"blue\",\"board\",\"boat\",\"body\",\"bone\",\"book\",\"border\",\"born\",\n  \"both\",\"bottle\",\"bottom\",\"bound\",\"bow\",\"bowl\",\"box\",\"boy\",\n  \"brain\",\"branch\",\"brass\",\"brave\",\"bread\",\"break\",\"breakfast\",\"breath\",\n  \"breathe\",\"breathing\",\"breeze\",\"brick\",\"bridge\",\"brief\",\"bright\",\"bring\",\n  \"broad\",\"broke\",\"broken\",\"brother\",\"brought\",\"brown\",\"brush\",\"buffalo\",\n  \"build\",\"building\",\"built\",\"buried\",\"burn\",\"burst\",\"bus\",\"bush\",\n  \"business\",\"busy\",\"but\",\"butter\",\"buy\",\"by\",\"cabin\",\"cage\",\n  \"cake\",\"call\",\"calm\",\"came\",\"camera\",\"camp\",\"can\",\"canal\",\n  \"cannot\",\"cap\",\"capital\",\"captain\",\"captured\",\"car\",\"carbon\",\"card\",\n  \"care\",\"careful\",\"carefully\",\"carried\",\"carry\",\"case\",\"cast\",\"castle\",\n  \"cat\",\"catch\",\"cattle\",\"caught\",\"cause\",\"cave\",\"cell\",\"cent\",\n  \"center\",\"central\",\"century\",\"certain\",\"certainly\",\"chain\",\"chair\",\"chamber\",\n  \"chance\",\"change\",\"changing\",\"chapter\",\"character\",\"characteristic\",\"charge\",\"chart\",\n  \"check\",\"cheese\",\"chemical\",\"chest\",\"chicken\",\"chief\",\"child\",\"children\",\n  \"choice\",\"choose\",\"chose\",\"chosen\",\"church\",\"circle\",\"circus\",\"citizen\",\n  \"city\",\"class\",\"classroom\",\"claws\",\"clay\",\"clean\",\"clear\",\"clearly\",\n  \"climate\",\"climb\",\"clock\",\"close\",\"closely\",\"closer\",\"cloth\",\"clothes\",\n  \"clothing\",\"cloud\",\"club\",\"coach\",\"coal\",\"coast\",\"coat\",\"coffee\",\n  \"cold\",\"collect\",\"college\",\"colony\",\"color\",\"column\",\"combination\",\"combine\",\n  \"come\",\"comfortable\",\"coming\",\"command\",\"common\",\"community\",\"company\",\"compare\",\n  \"compass\",\"complete\",\"completely\",\"complex\",\"composed\",\"composition\",\"compound\",\"concerned\",\n  \"condition\",\"congress\",\"connected\",\"consider\",\"consist\",\"consonant\",\"constantly\",\"construction\",\n  \"contain\",\"continent\",\"continued\",\"contrast\",\"control\",\"conversation\",\"cook\",\"cookies\",\n  \"cool\",\"copper\",\"copy\",\"corn\",\"corner\",\"correct\",\"correctly\",\"cost\",\n  \"cotton\",\"could\",\"count\",\"country\",\"couple\",\"courage\",\"course\",\"court\",\n  \"cover\",\"cow\",\"cowboy\",\"crack\",\"cream\",\"create\",\"creature\",\"crew\",\n  \"crop\",\"cross\",\"crowd\",\"cry\",\"cup\",\"curious\",\"current\",\"curve\",\n  \"customs\",\"cut\",\"cutting\",\"daily\",\"damage\",\"dance\",\"danger\",\"dangerous\",\n  \"dark\",\"darkness\",\"date\",\"daughter\",\"dawn\",\"day\",\"dead\",\"deal\",\n  \"dear\",\"death\",\"decide\",\"declared\",\"deep\",\"deeply\",\"deer\",\"definition\",\n  \"degree\",\"depend\",\"depth\",\"describe\",\"desert\",\"design\",\"desk\",\"detail\",\n  \"determine\",\"develop\",\"development\",\"diagram\",\"diameter\",\"did\",\"die\",\"differ\",\n  \"difference\",\"different\",\"difficult\",\"difficulty\",\"dig\",\"dinner\",\"direct\",\"direction\",\n  \"directly\",\"dirt\",\"dirty\",\"disappear\",\"discover\",\"discovery\",\"discuss\",\"discussion\",\n  \"disease\",\"dish\",\"distance\",\"distant\",\"divide\",\"division\",\"do\",\"doctor\",\n  \"does\",\"dog\",\"doing\",\"doll\",\"dollar\",\"done\",\"donkey\",\"door\",\n  \"dot\",\"double\",\"doubt\",\"down\",\"dozen\",\"draw\",\"drawn\",\"dream\",\n  \"dress\",\"drew\",\"dried\",\"drink\",\"drive\",\"driven\",\"driver\",\"driving\",\n  \"drop\",\"dropped\",\"drove\",\"dry\",\"duck\",\"due\",\"dug\",\"dull\",\n  \"during\",\"dust\",\"duty\",\"each\",\"eager\",\"ear\",\"earlier\",\"early\",\n  \"earn\",\"earth\",\"easier\",\"easily\",\"east\",\"easy\",\"eat\",\"eaten\",\n  \"edge\",\"education\",\"effect\",\"effort\",\"egg\",\"eight\",\"either\",\"electric\",\n  \"electricity\",\"element\",\"elephant\",\"eleven\",\"else\",\"empty\",\"end\",\"enemy\",\n  \"energy\",\"engine\",\"engineer\",\"enjoy\",\"enough\",\"enter\",\"entire\",\"entirely\",\n  \"environment\",\"equal\",\"equally\",\"equator\",\"equipment\",\"escape\",\"especially\",\"essential\",\n  \"establish\",\"even\",\"evening\",\"event\",\"eventually\",\"ever\",\"every\",\"everybody\",\n  \"everyone\",\"everything\",\"everywhere\",\"evidence\",\"exact\",\"exactly\",\"examine\",\"example\",\n  \"excellent\",\"except\",\"exchange\",\"excited\",\"excitement\",\"exciting\",\"exclaimed\",\"exercise\",\n  \"exist\",\"expect\",\"experience\",\"experiment\",\"explain\",\"explanation\",\"explore\",\"express\",\n  \"expression\",\"extra\",\"eye\",\"face\",\"facing\",\"fact\",\"factor\",\"factory\",\n  \"failed\",\"fair\",\"fairly\",\"fall\",\"fallen\",\"familiar\",\"family\",\"famous\",\n  \"far\",\"farm\",\"farmer\",\"farther\",\"fast\",\"fastened\",\"faster\",\"fat\",\n  \"father\",\"favorite\",\"fear\",\"feathers\",\"feature\",\"fed\",\"feed\",\"feel\",\n  \"feet\",\"fell\",\"fellow\",\"felt\",\"fence\",\"few\",\"fewer\",\"field\",\n  \"fierce\",\"fifteen\",\"fifth\",\"fifty\",\"fight\",\"fighting\",\"figure\",\"fill\",\n  \"film\",\"final\",\"finally\",\"find\",\"fine\",\"finest\",\"finger\",\"finish\",\n  \"fire\",\"fireplace\",\"firm\",\"first\",\"fish\",\"five\",\"fix\",\"flag\",\n  \"flame\",\"flat\",\"flew\",\"flies\",\"flight\",\"floating\",\"floor\",\"flow\",\n  \"flower\",\"fly\",\"fog\",\"folks\",\"follow\",\"food\",\"foot\",\"football\",\n  \"for\",\"force\",\"foreign\",\"forest\",\"forget\",\"forgot\",\"forgotten\",\"form\",\n  \"former\",\"fort\",\"forth\",\"forty\",\"forward\",\"fought\",\"found\",\"four\",\n  \"fourth\",\"fox\",\"frame\",\"free\",\"freedom\",\"frequently\",\"fresh\",\"friend\",\n  \"friendly\",\"frighten\",\"frog\",\"from\",\"front\",\"frozen\",\"fruit\",\"fuel\",\n  \"full\",\"fully\",\"fun\",\"function\",\"funny\",\"fur\",\"furniture\",\"further\",\n  \"future\",\"gain\",\"game\",\"garage\",\"garden\",\"gas\",\"gasoline\",\"gate\",\n  \"gather\",\"gave\",\"general\",\"generally\",\"gentle\",\"gently\",\"get\",\"getting\",\n  \"giant\",\"gift\",\"girl\",\"give\",\"given\",\"giving\",\"glad\",\"glass\",\n  \"globe\",\"go\",\"goes\",\"gold\",\"golden\",\"gone\",\"good\",\"goose\",\n  \"got\",\"government\",\"grabbed\",\"grade\",\"gradually\",\"grain\",\"grandfather\",\"grandmother\",\n  \"graph\",\"grass\",\"gravity\",\"gray\",\"great\",\"greater\",\"greatest\",\"greatly\",\n  \"green\",\"grew\",\"ground\",\"group\",\"grow\",\"grown\",\"growth\",\"guard\",\n  \"guess\",\"guide\",\"gulf\",\"gun\",\"habit\",\"had\",\"hair\",\"half\",\n  \"halfway\",\"hall\",\"hand\",\"handle\",\"handsome\",\"hang\",\"happen\",\"happened\",\n  \"happily\",\"happy\",\"harbor\",\"hard\",\"harder\",\"hardly\",\"has\",\"hat\",\n  \"have\",\"having\",\"hay\",\"he\",\"headed\",\"heading\",\"health\",\"heard\",\n  \"hearing\",\"heart\",\"heat\",\"heavy\",\"height\",\"held\",\"hello\",\"help\",\n  \"helpful\",\"her\",\"herd\",\"here\",\"herself\",\"hidden\",\"hide\",\"high\",\n  \"higher\",\"highest\",\"highway\",\"hill\",\"him\",\"himself\",\"his\",\"history\",\n  \"hit\",\"hold\",\"hole\",\"hollow\",\"home\",\"honor\",\"hope\",\"horn\",\n  \"horse\",\"hospital\",\"hot\",\"hour\",\"house\",\"how\",\"however\",\"huge\",\n  \"human\",\"hundred\",\"hung\",\"hungry\",\"hunt\",\"hunter\",\"hurried\",\"hurry\",\n  \"hurt\",\"husband\",\"ice\",\"idea\",\"identity\",\"if\",\"ill\",\"image\",\n  \"imagine\",\"immediately\",\"importance\",\"important\",\"impossible\",\"improve\",\"in\",\"inch\",\n  \"include\",\"including\",\"income\",\"increase\",\"indeed\",\"independent\",\"indicate\",\"individual\",\n  \"industrial\",\"industry\",\"influence\",\"information\",\"inside\",\"instance\",\"instant\",\"instead\",\n  \"instrument\",\"interest\",\"interior\",\"into\",\"introduced\",\"invented\",\"involved\",\"iron\",\n  \"is\",\"island\",\"it\",\"its\",\"itself\",\"jack\",\"jar\",\"jet\",\n  \"job\",\"join\",\"joined\",\"journey\",\"joy\",\"judge\",\"jump\",\"jungle\",\n  \"just\",\"keep\",\"kept\",\"key\",\"kids\",\"kill\",\"kind\",\"kitchen\",\n  \"knew\",\"knife\",\"know\",\"knowledge\",\"known\",\"label\",\"labor\",\"lack\",\n  \"lady\",\"laid\",\"lake\",\"lamp\",\"land\",\"language\",\"large\",\"larger\",\n  \"largest\",\"last\",\"late\",\"later\",\"laugh\",\"law\",\"lay\",\"layers\",\n  \"lead\",\"leader\",\"leaf\",\"learn\",\"least\",\"leather\",\"leave\",\"leaving\",\n  \"led\",\"left\",\"leg\",\"length\",\"lesson\",\"let\",\"letter\",\"level\",\n  \"library\",\"lie\",\"life\",\"lift\",\"light\",\"like\",\"likely\",\"limited\",\n  \"line\",\"lion\",\"lips\",\"liquid\",\"list\",\"listen\",\"little\",\"live\",\n  \"living\",\"load\",\"local\",\"locate\",\"location\",\"log\",\"lonely\",\"long\",\n  \"longer\",\"look\",\"loose\",\"lose\",\"loss\",\"lost\",\"lot\",\"loud\",\n  \"love\",\"lovely\",\"low\",\"lower\",\"luck\",\"lucky\",\"lunch\",\"lungs\",\n  \"lying\",\"machine\",\"machinery\",\"mad\",\"made\",\"magic\",\"magnet\",\"mail\",\n  \"main\",\"mainly\",\"major\",\"make\",\"making\",\"man\",\"managed\",\"manner\",\n  \"manufacturing\",\"many\",\"map\",\"mark\",\"market\",\"married\",\"mass\",\"massage\",\n  \"master\",\"material\",\"mathematics\",\"matter\",\"may\",\"maybe\",\"me\",\"meal\",\n  \"mean\",\"means\",\"meant\",\"measure\",\"meat\",\"medicine\",\"meet\",\"melted\",\n  \"member\",\"memory\",\"men\",\"mental\",\"merely\",\"met\",\"metal\",\"method\",\n  \"mice\",\"middle\",\"might\",\"mighty\",\"mile\",\"military\",\"milk\",\"mill\",\n  \"mind\",\"mine\",\"minerals\",\"minute\",\"mirror\",\"missing\",\"mission\",\"mistake\",\n  \"mix\",\"mixture\",\"model\",\"modern\",\"molecular\",\"moment\",\"money\",\"monkey\",\n  \"month\",\"mood\",\"moon\",\"more\",\"morning\",\"most\",\"mostly\",\"mother\",\n  \"motion\",\"motor\",\"mountain\",\"mouse\",\"mouth\",\"move\",\"movement\",\"movie\",\n  \"moving\",\"mud\",\"muscle\",\"music\",\"musical\",\"must\",\"my\",\"myself\",\n  \"mysterious\",\"nails\",\"name\",\"nation\",\"national\",\"native\",\"natural\",\"naturally\",\n  \"nature\",\"near\",\"nearby\",\"nearer\",\"nearest\",\"nearly\",\"necessary\",\"neck\",\n  \"needed\",\"needle\",\"needs\",\"negative\",\"neighbor\",\"neighborhood\",\"nervous\",\"nest\",\n  \"never\",\"new\",\"news\",\"newspaper\",\"next\",\"nice\",\"night\",\"nine\",\n  \"no\",\"nobody\",\"nodded\",\"noise\",\"none\",\"noon\",\"nor\",\"north\",\n  \"nose\",\"not\",\"note\",\"noted\",\"nothing\",\"notice\",\"noun\",\"now\",\n  \"number\",\"numeral\",\"nuts\",\"object\",\"observe\",\"obtain\",\"occasionally\",\"occur\",\n  \"ocean\",\"of\",\"off\",\"offer\",\"office\",\"officer\",\"official\",\"oil\",\n  \"old\",\"older\",\"oldest\",\"on\",\"once\",\"one\",\"only\",\"onto\",\n  \"open\",\"operation\",\"opinion\",\"opportunity\",\"opposite\",\"or\",\"orange\",\"orbit\",\n  \"order\",\"ordinary\",\"organization\",\"organized\",\"origin\",\"original\",\"other\",\"ought\",\n  \"our\",\"ourselves\",\"out\",\"outer\",\"outline\",\"outside\",\"over\",\"own\",\n  \"owner\",\"oxygen\",\"pack\",\"package\",\"page\",\"paid\",\"pain\",\"paint\",\n  \"pair\",\"palace\",\"pale\",\"pan\",\"paper\",\"paragraph\",\"parallel\",\"parent\",\n  \"park\",\"part\",\"particles\",\"particular\",\"particularly\",\"partly\",\"parts\",\"party\",\n  \"pass\",\"passage\",\"past\",\"path\",\"pattern\",\"pay\",\"peace\",\"pen\",\n  \"pencil\",\"people\",\"per\",\"percent\",\"perfect\",\"perfectly\",\"perhaps\",\"period\",\n  \"person\",\"personal\",\"pet\",\"phrase\",\"physical\",\"piano\",\"pick\",\"picture\",\n  \"pictured\",\"pie\",\"piece\",\"pig\",\"pile\",\"pilot\",\"pine\",\"pink\",\n  \"pipe\",\"pitch\",\"place\",\"plain\",\"plan\",\"plane\",\"planet\",\"planned\",\n  \"planning\",\"plant\",\"plastic\",\"plate\",\"plates\",\"play\",\"pleasant\",\"please\",\n  \"pleasure\",\"plenty\",\"plural\",\"plus\",\"pocket\",\"poem\",\"poet\",\"poetry\",\n  \"point\",\"pole\",\"police\",\"policeman\",\"political\",\"pond\",\"pony\",\"pool\",\n  \"poor\",\"popular\",\"population\",\"porch\",\"port\",\"position\",\"positive\",\"possible\",\n  \"possibly\",\"post\",\"pot\",\"potatoes\",\"pound\",\"pour\",\"powder\",\"power\",\n  \"powerful\",\"practical\",\"practice\",\"prepare\",\"present\",\"president\",\"press\",\"pressure\",\n  \"pretty\",\"prevent\",\"previous\",\"price\",\"pride\",\"primitive\",\"principal\",\"principle\",\n  \"printed\",\"private\",\"prize\",\"probably\",\"problem\",\"process\",\"produce\",\"product\",\n  \"production\",\"program\",\"progress\",\"promised\",\"proper\",\"properly\",\"property\",\"protection\",\n  \"proud\",\"prove\",\"provide\",\"public\",\"pull\",\"pupil\",\"pure\",\"purple\",\n  \"purpose\",\"push\",\"put\",\"putting\",\"quarter\",\"queen\",\"question\",\"quick\",\n  \"quickly\",\"quiet\",\"quietly\",\"quite\",\"rabbit\",\"race\",\"radio\",\"railroad\",\n  \"rain\",\"raise\",\"ran\",\"ranch\",\"range\",\"rapidly\",\"rate\",\"rather\",\n  \"raw\",\"rays\",\"reach\",\"read\",\"reader\",\"ready\",\"real\",\"realize\",\n  \"rear\",\"reason\",\"recall\",\"receive\",\"recent\",\"recently\",\"recognize\",\"record\",\n  \"red\",\"refer\",\"refused\",\"region\",\"regular\",\"related\",\"relationship\",\"religious\",\n  \"remain\",\"remarkable\",\"remember\",\"remove\",\"repeat\",\"replace\",\"replied\",\"report\",\n  \"represent\",\"require\",\"research\",\"respect\",\"rest\",\"result\",\"return\",\"review\",\n  \"rhyme\",\"rhythm\",\"rice\",\"rich\",\"ride\",\"riding\",\"right\",\"ring\",\n  \"rise\",\"rising\",\"river\",\"road\",\"roar\",\"rock\",\"rocket\",\"rocky\",\n  \"rod\",\"roll\",\"roof\",\"room\",\"root\",\"rope\",\"rose\",\"rough\",\n  \"round\",\"route\",\"row\",\"rubbed\",\"rubber\",\"rule\",\"ruler\",\"run\",\n  \"running\",\"rush\",\"sad\",\"saddle\",\"safe\",\"safety\",\"said\",\"sail\",\n  \"sale\",\"salmon\",\"salt\",\"same\",\"sand\",\"sang\",\"sat\",\"satellites\",\n  \"satisfied\",\"save\",\"saved\",\"saw\",\"say\",\"scale\",\"scared\",\"scene\",\n  \"school\",\"science\",\"scientific\",\"scientist\",\"score\",\"screen\",\"sea\",\"search\",\n  \"season\",\"seat\",\"second\",\"secret\",\"section\",\"see\",\"seed\",\"seeing\",\n  \"seems\",\"seen\",\"seldom\",\"select\",\"selection\",\"sell\",\"send\",\"sense\",\n  \"sent\",\"sentence\",\"separate\",\"series\",\"serious\",\"serve\",\"service\",\"sets\",\n  \"setting\",\"settle\",\"settlers\",\"seven\",\"several\",\"shade\",\"shadow\",\"shake\",\n  \"shaking\",\"shall\",\"shallow\",\"shape\",\"share\",\"sharp\",\"she\",\"sheep\",\n  \"sheet\",\"shelf\",\"shells\",\"shelter\",\"shine\",\"shinning\",\"ship\",\"shirt\",\n  \"shoe\",\"shoot\",\"shop\",\"shore\",\"short\",\"shorter\",\"shot\",\"should\",\n  \"shoulder\",\"shout\",\"show\",\"shown\",\"shut\",\"sick\",\"sides\",\"sight\",\n  \"sign\",\"signal\",\"silence\",\"silent\",\"silk\",\"silly\",\"silver\",\"similar\",\n  \"simple\",\"simplest\",\"simply\",\"since\",\"sing\",\"single\",\"sink\",\"sister\",\n  \"sit\",\"sitting\",\"situation\",\"six\",\"size\",\"skill\",\"skin\",\"sky\",\n  \"slabs\",\"slave\",\"sleep\",\"slept\",\"slide\",\"slight\",\"slightly\",\"slip\",\n  \"slipped\",\"slope\",\"slow\",\"slowly\",\"small\",\"smaller\",\"smallest\",\"smell\",\n  \"smile\",\"smoke\",\"smooth\",\"snake\",\"snow\",\"so\",\"soap\",\"social\",\n  \"society\",\"soft\",\"softly\",\"soil\",\"solar\",\"sold\",\"soldier\",\"solid\",\n  \"solution\",\"solve\",\"some\",\"somebody\",\"somehow\",\"someone\",\"something\",\"sometime\",\n  \"somewhere\",\"son\",\"song\",\"soon\",\"sort\",\"sound\",\"source\",\"south\",\n  \"southern\",\"space\",\"speak\",\"special\",\"species\",\"specific\",\"speech\",\"speed\",\n  \"spell\",\"spend\",\"spent\",\"spider\",\"spin\",\"spirit\",\"spite\",\"split\",\n  \"spoken\",\"sport\",\"spread\",\"spring\",\"square\",\"stage\",\"stairs\",\"stand\",\n  \"standard\",\"star\",\"stared\",\"start\",\"state\",\"statement\",\"station\",\"stay\",\n  \"steady\",\"steam\",\"steel\",\"steep\",\"stems\",\"step\",\"stepped\",\"stick\",\n  \"stiff\",\"still\",\"stock\",\"stomach\",\"stone\",\"stood\",\"stop\",\"stopped\",\n  \"store\",\"storm\",\"story\",\"stove\",\"straight\",\"strange\",\"stranger\",\"straw\",\n  \"stream\",\"street\",\"strength\",\"stretch\",\"strike\",\"string\",\"strip\",\"strong\",\n  \"stronger\",\"struck\",\"structure\",\"struggle\",\"stuck\",\"student\",\"studied\",\"studying\",\n  \"subject\",\"substance\",\"success\",\"successful\",\"such\",\"sudden\",\"suddenly\",\"sugar\",\n  \"suggest\",\"suit\",\"sum\",\"summer\",\"sun\",\"sunlight\",\"supper\",\"supply\",\n  \"support\",\"suppose\",\"sure\",\"surface\",\"surprise\",\"surrounded\",\"swam\",\"sweet\",\n  \"swept\",\"swim\",\"swimming\",\"swing\",\"swung\",\"syllable\",\"symbol\",\"system\",\n  \"table\",\"tail\",\"take\",\"taken\",\"tales\",\"talk\",\"tall\",\"tank\",\n  \"tape\",\"task\",\"taste\",\"taught\",\"tax\",\"tea\",\"teach\",\"teacher\",\n  \"team\",\"tears\",\"teeth\",\"telephone\",\"television\",\"tell\",\"temperature\",\"ten\",\n  \"tent\",\"term\",\"terrible\",\"test\",\"than\",\"thank\",\"that\",\"thee\",\n  \"them\",\"themselves\",\"then\",\"theory\",\"there\",\"therefore\",\"these\",\"they\",\n  \"thick\",\"thin\",\"thing\",\"think\",\"third\",\"thirty\",\"this\",\"those\",\n  \"thou\",\"though\",\"thought\",\"thousand\",\"thread\",\"three\",\"threw\",\"throat\",\n  \"through\",\"throughout\",\"throw\",\"thrown\",\"thumb\",\"thus\",\"thy\",\"tide\",\n  \"tie\",\"tight\",\"tightly\",\"till\",\"time\",\"tin\",\"tiny\",\"tip\",\n  \"tired\",\"title\",\"to\",\"tobacco\",\"today\",\"together\",\"told\",\"tomorrow\",\n  \"tone\",\"tongue\",\"tonight\",\"too\",\"took\",\"tool\",\"top\",\"topic\",\n  \"torn\",\"total\",\"touch\",\"toward\",\"tower\",\"town\",\"toy\",\"trace\",\n  \"track\",\"trade\",\"traffic\",\"trail\",\"train\",\"transportation\",\"trap\",\"travel\",\n  \"treated\",\"tree\",\"triangle\",\"tribe\",\"trick\",\"tried\",\"trip\",\"troops\",\n  \"tropical\",\"trouble\",\"truck\",\"trunk\",\"truth\",\"try\",\"tube\",\"tune\",\n  \"turn\",\"twelve\",\"twenty\",\"twice\",\"two\",\"type\",\"typical\",\"uncle\",\n  \"under\",\"underline\",\"understanding\",\"unhappy\",\"union\",\"unit\",\"universe\",\"unknown\",\n  \"unless\",\"until\",\"unusual\",\"up\",\"upon\",\"upper\",\"upward\",\"us\",\n  \"use\",\"useful\",\"using\",\"usual\",\"usually\",\"valley\",\"valuable\",\"value\",\n  \"vapor\",\"variety\",\"various\",\"vast\",\"vegetable\",\"verb\",\"vertical\",\"very\",\n  \"vessels\",\"victory\",\"view\",\"village\",\"visit\",\"visitor\",\"voice\",\"volume\",\n  \"vote\",\"vowel\",\"voyage\",\"wagon\",\"wait\",\"walk\",\"wall\",\"want\",\n  \"war\",\"warm\",\"warn\",\"was\",\"wash\",\"waste\",\"watch\",\"water\",\n  \"wave\",\"way\",\"we\",\"weak\",\"wealth\",\"wear\",\"weather\",\"week\",\n  \"weigh\",\"weight\",\"welcome\",\"well\",\"went\",\"were\",\"west\",\"western\",\n  \"wet\",\"whale\",\"what\",\"whatever\",\"wheat\",\"wheel\",\"when\",\"whenever\",\n  \"where\",\"wherever\",\"whether\",\"which\",\"while\",\"whispered\",\"whistle\",\"white\",\n  \"who\",\"whole\",\"whom\",\"whose\",\"why\",\"wide\",\"widely\",\"wife\",\n  \"wild\",\"will\",\"willing\",\"win\",\"wind\",\"window\",\"wing\",\"winter\",\n  \"wire\",\"wise\",\"wish\",\"with\",\"within\",\"without\",\"wolf\",\"women\",\n  \"won\",\"wonder\",\"wonderful\",\"wood\",\"wooden\",\"wool\",\"word\",\"wore\",\n  \"work\",\"worker\",\"world\",\"worried\",\"worry\",\"worse\",\"worth\",\"would\",\n  \"wrapped\",\"write\",\"writer\",\"writing\",\"written\",\"wrong\",\"wrote\",\"yard\",\n  \"year\",\"yellow\",\"yes\",\"yesterday\",\"yet\",\"you\",\"young\",\"younger\",\n  \"your\",\"yourself\",\"youth\",\"zero\",\"zebra\",\"zipper\",\"zoo\",\"zulu\"\n];\n\nfunction words(options) {\n\n  function word() {\n    if (options && options.maxLength > 1) {\n      return generateWordWithMaxLength();\n    } else {\n      return generateRandomWord();\n    }\n  }\n\n  function generateWordWithMaxLength() {\n    var rightSize = false;\n    var wordUsed;\n    while (!rightSize) {  \n      wordUsed = generateRandomWord();\n      if(wordUsed.length <= options.maxLength) {\n        rightSize = true;\n      }\n\n    }\n    return wordUsed;\n  }\n\n  function generateRandomWord() {\n    return wordList[randInt(wordList.length)];\n  }\n\n  function randInt(lessThan) {\n    return Math.floor(Math.random() * lessThan);\n  }\n\n  // No arguments = generate one word\n  if (typeof(options) === 'undefined') {\n    return word();\n  }\n\n  // Just a number = return that many words\n  if (typeof(options) === 'number') {\n    options = { exactly: options };\n  }\n\n  // options supported: exactly, min, max, join\n  if (options.exactly) {\n    options.min = options.exactly;\n    options.max = options.exactly;\n  }\n  \n  // not a number = one word par string\n  if (typeof(options.wordsPerString) !== 'number') {\n    options.wordsPerString = 1;\n  }\n\n  //not a function = returns the raw word\n  if (typeof(options.formatter) !== 'function') {\n    options.formatter = (word) => word;\n  }\n\n  //not a string = separator is a space\n  if (typeof(options.separator) !== 'string') {\n    options.separator = ' ';\n  }\n\n  var total = options.min + randInt(options.max + 1 - options.min);\n  var results = [];\n  var token = '';\n  var relativeIndex = 0;\n\n  for (var i = 0; (i < total * options.wordsPerString); i++) {\n    if (relativeIndex === options.wordsPerString - 1) {\n      token += options.formatter(word(), relativeIndex);\n    }\n    else {\n      token += options.formatter(word(), relativeIndex) + options.separator;\n    }\n    relativeIndex++;\n    if ((i + 1) % options.wordsPerString === 0) {\n      results.push(token);\n      token = ''; \n      relativeIndex = 0;\n    }\n   \n  }\n  if (typeof options.join === 'string') {\n    results = results.join(options.join);\n  }\n\n  return results;\n}\n\nmodule.exports = words;\n// Export the word list as it is often useful\nwords.wordList = wordList;\n\n\n//# sourceURL=webpack://myfauxdle/./node_modules/random-words/index.js?");
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module can't be inlined because the eval devtool is used.
+/******/ 	var __webpack_exports__ = __webpack_require__("./src/index.js");
+/******/ 	
 /******/ })()
 ;

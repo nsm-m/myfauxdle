@@ -10,7 +10,7 @@
     "start": "webpack serve --open --mode development",
     "dev": " webpack  --watch --mode development "
   },
-  "keywords": [],
+  "keywords": [], 
   "author": "",
   "license": "ISC",
   "devDependencies": {
@@ -30,6 +30,7 @@
     "webpack-dev-server": "^4.11.1"
   },
   "dependencies": {
-    "axios": "^0.27.2"
+    "axios": "^0.27.2",
+    "random-words": "^1.2.0"
   }
 }
