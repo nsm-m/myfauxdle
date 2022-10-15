@@ -147,6 +147,7 @@
 
 
     <div class="game-modals-wrapper">
+
         <div class="success-modal modal fade" id="success-modal" tabindex="-1" role="dialog">
             <div class="modal-dialog modal-sm" role="document">
                 <div class="modal-content">
@@ -203,6 +204,45 @@
                 </div>
             </div>
         </div>
+
+         <div class="lost-word-modal modal fade" id="lost-word-modal" tabindex="-1" role="dialog">
+             <div class="modal-dialog modal-sm" role="document">
+                 <div class="modal-content">
+                     <div class="modal-header">
+                         <h5 class="modal-title">Modal title</h5>
+                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                             <span aria-hidden="true">&times;</span>
+                         </button>
+                     </div>
+                     <div class="modal-body">
+                         <p>You have used all your guesses :(</p>
+                         <p>The word to find was: </p><span id="result"</span>
+                     </div>
+                     <div class="modal-footer">
+                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                     </div>
+                 </div>
+             </div>
+         </div>
+
+          <div class="submit-word-modal modal fade" id="submit-word-modal" tabindex="-1" role="dialog">
+              <div class="modal-dialog modal-sm" role="document">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <h5 class="modal-title">Modal title</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                          </button>
+                      </div>
+                      <div class="modal-body">
+                          <p>Please submit word</p>
+                      </div>
+                      <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
     </div>
 
 
