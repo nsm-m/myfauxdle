@@ -129,7 +129,7 @@ $(document).ready(function () {
 
 
     let rgBGreen = "rgb(12, 206, 107)";
-    let rgbYellow = "rgb(220, 237, 49)";
+    let rgbYellow = "rgb(220, 237, 49)"; 
     let rgbGrey = "rgb(142, 141, 145)";
 
     const MAX_GUESSES = 6;

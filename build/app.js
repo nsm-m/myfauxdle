@@ -38,7 +38,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _wor
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"dictionaryCheck\": () => (/* binding */ dictionaryCheck)\n/* harmony export */ });\nfunction dictionaryCheck() {\n  console.log(\"dictionary\");\n  alert(\"dictionary\");\n  fetch(\"/.netlify/functions/word-found\").then(function (res) {\n    return res;\n  }).then(function (data) {\n    return console.log(data);\n  });\n}\n\n//# sourceURL=webpack://myfauxdle/./src/jsmodules/wordCheck.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"dictionaryCheck\": () => (/* binding */ dictionaryCheck)\n/* harmony export */ });\nfunction dictionaryCheck() {\n  fetch(\"/.netlify/functions/word-found\").then(function (res) {\n    return res;\n  }).then(function (data) {\n    return console.log(data);\n  });\n}\n\n//# sourceURL=webpack://myfauxdle/./src/jsmodules/wordCheck.js?");
 
 /***/ }),
 
