@@ -129,7 +129,7 @@ $(document).ready(function () {
 
 
     let rgBGreen = "rgb(12, 206, 107)";
-    let rgbYellow = "rgb(220, 237, 49)"; 
+    let rgbYellow = "rgb(220, 237, 49)";
     let rgbGrey = "rgb(142, 141, 145)";
 
     const MAX_GUESSES = 6;
@@ -536,6 +536,23 @@ $(document).ready(function () {
 
             $('#success-modal').modal('show');
 
+            $(elems).attr("disabled", "disable");
+            $(delBtn).attr("disabled", "disable");
+            $(submitBtn).attr("disabled", "disable");
+            $(document).keydown(function (event) {
+                event.preventDefault;
+                // alert("oops")
+            })
+
+            return wordWasFound;
+
+        } else if ((wordTested.isWordValid() !== true) && (count === MAX_GUESSES)) {
+            wordWasFound = true;
+
+            //  $('#-modal').modal('show');
+            //  alert("lost");
+            $('#result').text(formattedWordToGuess);
+            $('#lost-word-modal').modal('show');
             $(elems).attr("disabled", "disable");
             $(delBtn).attr("disabled", "disable");
             $(submitBtn).attr("disabled", "disable");
