@@ -306,7 +306,8 @@ $(document).ready(function () {
 
     async function submitWord() {
 
-        //  alert("submit test");
+        //When submitting the word we want to check
+        //
 
         if ((count < MAX_GUESSES) && (wordArray.length === 5)) {
 
@@ -336,15 +337,15 @@ $(document).ready(function () {
                         guessNumber = guessNumber + 1;
                         count = count + 1;
 
-                        if (count === MAX_GUESSES) {
+                        // if (count === MAX_GUESSES) {
 
-                            $('#result').text(formattedWordToGuess);
-                            $('#lost-word-modal').modal('show');
+                        //     $('#result').text(formattedWordToGuess);
+                        //     $('#lost-word-modal').modal('show');
 
-                            $(elems).attr("disabled", "disable");
-                            $(delBtn).attr("disabled", "disable");
-                            $(submitBtn).attr("disabled", "disable");
-                        }
+                        //     $(elems).attr("disabled", "disable");
+                        //     $(delBtn).attr("disabled", "disable");
+                        //     $(submitBtn).attr("disabled", "disable");
+                        // }
                         //  console.log(count);
                         wordTested = new WordToTest(wordsubmitted, count);
                         lettersCheck(wordTested.getWordToTest());
@@ -553,7 +554,7 @@ $(document).ready(function () {
     function lettersKeyboard() {
 
         let validLettersCount = 0;
-        let wordToGuess2 = newWord;
+        let wordToGuess2 = formattedWordToGuess;
         let wtg3 = wordToGuess2.split("");
 
         let userGuess = wordTested.getWordToTest();
@@ -569,7 +570,7 @@ $(document).ready(function () {
             let letterTested = userGuessArray3[i];
 
             let letterWordToTest2 = letterTested;
-            //   console.log("letter to find " + letterToFind + "letter tested " + letterTested);
+            console.log("letter to find " + letterToFind + "letter tested " + letterTested);
             if (letterToFind === letterTested) {
                 $(`#${letterTested}`).css('background-color', rgBGreen);
 
