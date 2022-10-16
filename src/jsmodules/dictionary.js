@@ -15,6 +15,9 @@ let parsedWordToGuess;
 let wordToGuessObject;
 let formattedWordToGuess;
 
+
+let wordWasFound = false;
+
 $(document).ready(function () {
 
     let wordCreated;
@@ -138,6 +141,8 @@ $(document).ready(function () {
     var lettersCount = 0;
 
     var elems = document.querySelectorAll(".letter");
+    var delBtn = document.getElementsByClassName('delete');
+    var submitBtn = document.getElementsByClassName('submit');
     var deleteLetter = document.getElementById("delete");
 
     var countDisplay = document.getElementById("count");
@@ -159,56 +164,69 @@ $(document).ready(function () {
     //
 
     $(document).keydown(function (event) {
+        event.preventDefault;
 
-        // Keyborad behavior:
-        // if Enter Key pressed and the word input is less than 5 letter
-        // trigger modal input error     
-        // Allow backspace button to remove letter 
-        // Only add letters if char key are typed, 
-        // if there is enough guesses available 
-        // and if there are enough letters available for the input
-        // If the enter key is pressed and there are enough letters the word is submitted
-        // If there are enough letters and the users attempt to add more
-        // a modal will pen with an error message
+        if (wordWasFound == true) {
 
-        if (((event.key === "Enter") || (event.keyCode == 13)) && (wordArray.length != 5)) {
             event.preventDefault;
-            console.log("enter key pressed but not enough letters" + event.keyCode);
-            $('#input-error-modal').modal('show');
-            return false
+        } else {
+
+            // Keyborad behavior:
+            // if Enter Key pressed and the word input is less than 5 letter
+            // trigger modal input error     
+            // Allow backspace button to remove letter 
+            // Only add letters if char key are typed, 
+            // if there is enough guesses available 
+            // and if there are enough letters available for the input
+            // If the enter key is pressed and there are enough letters the word is submitted
+            // If there are enough letters and the users attempt to add more
+            // a modal will pen with an error message
+
+            if (((event.key === "Enter") || (event.keyCode == 13)) && (wordArray.length != 5)) {
+
+                console.log("enter key pressed but not enough letters" + event.keyCode);
+                $('#input-error-modal').modal('show');
+
+                return false
 
 
-        } else if ((wordArray.length !== 0) && (event.key === "Backspace")) {
+            } else if ((wordArray.length !== 0) && (event.key === "Backspace")) {
 
-            removeLetter();
+                removeLetter();
 
-        } else if ((wordArray.length < 5) && (count < MAX_GUESSES)) {
+            } else if ((wordArray.length < 5) && (count < MAX_GUESSES)) {
 
 
-            if ((event.keyCode >= 65 && event.keyCode <= 90) && ((event.key !== "Enter" || event.keyCode == 13))) {
+                if ((event.keyCode >= 65 && event.keyCode <= 90) && ((event.key !== "Enter" || event.keyCode == 13))) {
 
-                let typedLetter = String.fromCharCode(event.keyCode);
-                let normalizedLetter = typedLetter.toLowerCase()
-                // console.log(normalizedLetter);
-                wordArray.push(normalizedLetter);
-                addelement(normalizedLetter);
+                    let typedLetter = String.fromCharCode(event.keyCode);
+                    let normalizedLetter = typedLetter.toLowerCase()
+                    // console.log(normalizedLetter);
+                    wordArray.push(normalizedLetter);
+                    addelement(normalizedLetter);
 
-                // console.log(wordArray);
-                //  console.log(count);
+                    // console.log(wordArray);
+                    //  console.log(count);
+                }
+
+
+            } else if ((event.key === "Enter") && (wordArray.length === 5)) {
+
+                submitWord();
+
+            } else if ((wordArray.length == 5) && (event.keyCode >= 65 && event.keyCode <= 90)) {
+                $('#submit-word-modal').modal('show');
+
             }
 
 
-        } else if ((event.key === "Enter") && (wordArray.length === 5)) {
 
-            submitWord();
-
-        } else if ((wordArray.length == 5) && (event.keyCode >= 65 && event.keyCode <= 90)) {
-            $('#submit-word-modal').modal('show');
-            //  alert("yo")
         }
 
-
     });
+
+
+
 
 
     //Function addelement(l) : 
@@ -308,7 +326,7 @@ $(document).ready(function () {
 
 
                     if ((isValidWord == false)) {
-                        //   alert("word not valid");
+
                         $('#invalid-word-modal').modal('show');
 
                         guessNumber = guessNumber;
@@ -319,11 +337,13 @@ $(document).ready(function () {
                         count = count + 1;
 
                         if (count === MAX_GUESSES) {
-                            //alert("enough guesses" + formattedWordToGuess);
+
                             $('#result').text(formattedWordToGuess);
                             $('#lost-word-modal').modal('show');
 
-                            $(elems).attr("disabled", "disable")
+                            $(elems).attr("disabled", "disable");
+                            $(delBtn).attr("disabled", "disable");
+                            $(submitBtn).attr("disabled", "disable");
                         }
                         //  console.log(count);
                         wordTested = new WordToTest(wordsubmitted, count);
@@ -431,7 +451,7 @@ $(document).ready(function () {
 
             if (letterWordToGuess === letterWordToTest.toLowerCase()) {
 
-                //  console.log("letter word to guess: " + letterWordToGuess + " /letter word to test: " + letterWordToTest + " so letter is valid");
+                console.log("letter word to guess: " + letterWordToGuess + " /letter word to test: " + letterWordToTest + " so letter is valid");
                 isValidLetter = true;
 
                 wtg.splice(i, 1, null);
@@ -511,11 +531,19 @@ $(document).ready(function () {
 
         // If all the letters are valid generate alert and disable keyboard
         if (wordTested.isWordValid() === true) {
-
+            wordWasFound = true;
 
             $('#success-modal').modal('show');
-            $(elems).attr("disabled", "disable")
 
+            $(elems).attr("disabled", "disable");
+            $(delBtn).attr("disabled", "disable");
+            $(submitBtn).attr("disabled", "disable");
+            $(document).keydown(function (event) {
+                event.preventDefault;
+                // alert("oops")
+            })
+
+            return wordWasFound;
 
         }
 
@@ -606,19 +634,6 @@ $(document).ready(function () {
 
 
     }
-
-
-
-    //modals
-    // $('#success-modal').on('shown.bs.modal', function () {
-    //     $('#myInput').trigger('focus')
-    // })
-
-
-
-
-
-
 
 
 
